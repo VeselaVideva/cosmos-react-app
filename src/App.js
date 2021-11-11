@@ -1,13 +1,17 @@
 import './App.css';
+import Background from './components/Background';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="header">
-        <p>COSMOS app in progress...</p>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Background />
+            <div className="App">
+                <header className="header">
+                    <p>COSMOS app in progress...</p>
+                </header>
+            </div>
+        </>
+    );
 }
 
 export default App;
