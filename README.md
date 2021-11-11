@@ -1,2 +1,2 @@
 # cosmos-react-app
-ReactJS project for SoftUni's JS Web Developer learning path
+ReactJS project for SoftUni's JS Web Developer learning path.
