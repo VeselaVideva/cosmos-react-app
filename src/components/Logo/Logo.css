@@ -1,3 +1,4 @@
-.logo {
+.logo,
+.logo img {
     height: -webkit-fill-available;
 }
