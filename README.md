@@ -4,17 +4,17 @@
 ReactJS project for SoftUni's JS Web Developer learning path.
 
 
-## External libraries
+### External libraries
 **[react-tsparticles](https://www.npmjs.com/package/react-tsparticles)** - used for creating a custom background of night sky with moving stars. When you click anywhere with the mouse, you can add more stars in the sky.
 
 
-## Guest area
+### Public (guests)
 Includes the following:
 
 
-## User area
+### Private (users)
 Includes the following:
 
 
-## Author:
+### Author
 Vesela Videva - [https://videva.dev/](https://videva.dev/)
