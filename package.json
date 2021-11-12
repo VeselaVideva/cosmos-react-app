@@ -2,7 +2,7 @@
   "name": "cosmos-react-app",
   "version": "0.1.0",
   "description": "ReactJS project for SoftUni's JS Web Developer learning path.",
-  "private": true,
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VeselaVideva/cosmos-react-app.git"

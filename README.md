@@ -1,2 +1,18 @@
-# cosmos-react-app
+# cosmos-react-app &middot; ![GitHub](https://img.shields.io/github/license/VeselaVideva/cosmos-react-app?color=blue&style=for-the-badge) ![GitHub repo size](https://img.shields.io/github/repo-size/VeselaVideva/cosmos-react-app?style=for-the-badge) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/VeselaVideva/cosmos-react-app?label=commits&style=for-the-badge)
 ReactJS project for SoftUni's JS Web Developer learning path.
+
+---
+## External libraries
+**[react-tsparticles](https://www.npmjs.com/package/react-tsparticles)** - used for creating a custom background of night sky with moving stars. When you click anywhere with the mouse, you can add more stars in the sky.
+
+---
+## Guest area
+Includes the following:
+
+---
+## User area
+Includes the following:
+
+---
+## Author:
+Vesela Videva - [https://videva.dev/](https://videva.dev/)
