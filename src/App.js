@@ -1,14 +1,15 @@
 import './App.css';
 import Background from './components/Background';
+import Header from './components/Header/Header';
 
 function App() {
     return (
         <>
             <Background />
             <div className="App">
-                <header className="header">
-                    <p>COSMOS app in progress...</p>
-                </header>
+                <Header />
+
+
             </div>
         </>
     );
