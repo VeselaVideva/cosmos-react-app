@@ -1,6 +1,6 @@
 import Particles from "react-tsparticles";
 
-export default function Background() {
+const Background = () => {
     const particlesInit = (main) => {
         // console.log(main);
     };
@@ -65,3 +65,5 @@ export default function Background() {
         />
     );
 }
+
+export default Background;
