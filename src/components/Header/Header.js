@@ -6,7 +6,7 @@ export default function Header() {
         <div className="header">
             {/* TODO: add menu items */}
             <Logo />
-            <p>COSMOS app in progress...</p>
+            <p>app in progress...</p>
         </div>
     );
 }
