@@ -1,12 +1,24 @@
 import './Header.css';
 import Logo from '../Logo/Logo';
 
-export default function Header() {
+const Header = ({ navigationChangeHandler }) => {
+    const onHeaderClick = (e) => {
+        e.preventDefault();
+        if (e.target.tagName === 'A') {
+            let url = new URL(e.target.href);
+            navigationChangeHandler(url.pathname)
+        }
+    };
+
     return (
-        <div className="header">
-            {/* TODO: add menu items */}
-            <Logo />
-            <p>app in progress...</p>
-        </div>
+        <header className="header" onClick={onHeaderClick}>
+            <Logo/>
+            <nav>
+                <a className="nav-link" href="login">Login</a>
+                <a className="nav-link" href="register">Register</a>
+            </nav>
+        </header>
     );
 }
+
+export default Header;

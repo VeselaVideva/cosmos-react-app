@@ -8,3 +8,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 1rem;
+}
