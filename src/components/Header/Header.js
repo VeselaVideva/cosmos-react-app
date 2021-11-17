@@ -14,8 +14,9 @@ const Header = ({ navigationChangeHandler }) => {
         <header className="header" onClick={onHeaderClick}>
             <Logo/>
             <nav>
-                <a className="nav-link" href="login">Login</a>
-                <a className="nav-link" href="register">Register</a>
+                <a className="nav-link" href="explore">Explore</a>
+                <a className="nav-link" href="login">Sign in</a>
+                <a className="nav-link" href="register">Sign up</a>
             </nav>
         </header>
     );
