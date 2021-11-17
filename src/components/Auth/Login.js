@@ -4,13 +4,11 @@ const Login = () => {
     return (
         <div className="login">
             <form>
-                <h1>Login</h1>
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" placeholder="youremail@abv.bg"/>
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password"/>
-                <input className="" type="submit" value="Login"/>
-                <p>If you don't have a profile, click <a href="/register">here</a></p>
+                <h1>Sign in</h1>
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <input className="" type="submit" value="Sign in"/>
+                <p>Don't have an account? <a href="/register">Sign up</a></p>
             </form>
         </div>
     );
