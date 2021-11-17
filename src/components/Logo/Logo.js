@@ -1,10 +1,11 @@
 import './Logo.css';
+import { NavLink } from 'react-router-dom';
 
 const Logo = () => {
     return (
-        <a className='logo' href="/">
+        <NavLink className='logo' to="/">
             <img src="logo.png" alt="Cosmos logo" />
-        </a>
+        </NavLink>
     );
 }
 
