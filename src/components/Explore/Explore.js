@@ -12,6 +12,7 @@ const Explore = () => {
             planetService.getAll()
                 .then(result => {
                     setPlanets(result);
+                    return result;
                 })
         }, 1000);
     }, []);

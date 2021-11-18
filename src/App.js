@@ -9,7 +9,8 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import Explore from './components/Explore/Explore'; // page showing all destinations (planets)
+import Explore from './components/Explore/Explore'; // page showing all planets
+import PlanetDetails from './components/PlanetDetails/PlanetDetails';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/explore" exact component={Explore} />
+                    <Route path="/explore/:planetName" component={PlanetDetails} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/logout" render={(props) => {
