@@ -5,6 +5,20 @@
     margin: 5% auto;
 }
 
+.error-page p {
+    letter-spacing: 1px;
+}
+
+.large-text {
+    font-size: 3rem;
+    margin-top: 0;
+}
+
 .huge-text {
     font-size: 10rem;
+    margin: 0;
+}
+
+.error-page .internal-link {
+    padding: 0;
 }
