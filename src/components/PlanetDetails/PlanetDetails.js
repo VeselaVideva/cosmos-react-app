@@ -5,8 +5,7 @@ import * as planetService from '../../services/planetService';
 import DetailsCard from '../DetailsCard/DetailsCard';
 
 const PlanetDetails = ({
-    match,
-    planetName,
+    match
 }) => {
     const [planet, setPlanet] = useState([]);
 

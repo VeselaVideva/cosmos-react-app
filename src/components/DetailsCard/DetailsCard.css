@@ -21,6 +21,14 @@
     font-weight: 300;
 }
 
+.planet-card-details p {
+    line-height: 1.5rem;
+}
+
+.planet-card-details span {
+    color: rgba(255,255,255,.7);
+}
+
 .planet-card-details .card-btn {
     -webkit-appearance: button;
     font-size: 0.875rem;
