@@ -1,6 +1,10 @@
 .home {
     color: #fff;
     text-align: center;
-    padding: 5rem;
+    padding: 10rem 5rem;
     margin: 5% auto;
+}
+
+.home span {
+    font-size: 3rem;
 }

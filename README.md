@@ -7,6 +7,8 @@ ReactJS project for SoftUni's JS Web Developer learning path.
 ### External libraries
 **[react-tsparticles](https://www.npmjs.com/package/react-tsparticles)** - used for creating a custom background of night sky with moving stars. When you click anywhere with the mouse, you can add more stars in the sky.
 
+**[react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)** - used as a Hook for creating an animated text on the Home page.
+
 
 ### Public (guests)
 Includes the following:
