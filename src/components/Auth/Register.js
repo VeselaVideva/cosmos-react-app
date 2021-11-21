@@ -1,6 +1,8 @@
 import './Auth.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { auth } from '../../services/authService';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = ({
     history
@@ -9,8 +11,25 @@ const Register = ({
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        // TODO: Register
-        historyHook.push('/login');
+
+        const formData = new FormData(e.target);
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
+
+        if (email === '' || password === '') {
+            throw new Error(`All fields are required!`);
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((cred) => {
+                console.log('User created:', cred.user);
+                e.target.reset();
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
+
+        historyHook.push('/explore');
     };
 
     return (
@@ -19,7 +38,6 @@ const Register = ({
                 <h1>Sign Up</h1>
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <input type="password" name="confirm-password" placeholder="Confirm Password" required />
                 <input className="submit" type="submit" value="Sign up"/>
                 <p>Already have an account? <Link className="internal-link" to="/login">Sign In</Link></p>
             </form>
