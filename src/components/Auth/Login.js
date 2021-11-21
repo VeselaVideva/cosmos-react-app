@@ -1,6 +1,8 @@
 import './Auth.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { auth } from '../../services/authService';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = ({
     history
@@ -9,8 +11,25 @@ const Login = ({
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        // TODO: Login
-        historyHook.push('/');
+
+        const formData = new FormData(e.target);
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
+
+        if (email === '' || password === '') {
+            throw new Error(`All fields are required!`);
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((cred) => {
+                console.log('User logged in:', cred.user);
+                e.target.reset();
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
+
+        historyHook.push('/explore');
     };
 
     return (
