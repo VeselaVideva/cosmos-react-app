@@ -31,3 +31,7 @@
     color: #fff;
     letter-spacing: 1.5px;
 }
+
+.planet-card .card-btn:hover {
+    background-color: #3e79ab;
+}

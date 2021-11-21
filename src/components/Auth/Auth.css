@@ -42,6 +42,11 @@ input:focus {
     color: #fff;
 }
 
+.login form .submit:hover,
+.register form .submit:hover {
+    background-color: #3e79ab;
+}
+
 .internal-link {
     color: #4682b4;
     padding: 0 0.5rem;
