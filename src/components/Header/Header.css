@@ -9,10 +9,21 @@
     justify-content: space-between;
 }
 
+.header nav {
+    display: inline-flex;
+}
+
 .nav-link {
     color: #fff;
     text-decoration: none;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+}
+
+.nav-link::before {
+    content: "";
+    border-left: 1px solid #fff;
+    position: relative;
+    left: -1.5rem;
 }
 
 .active-nav-link {
