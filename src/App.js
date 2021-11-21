@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './normalize.css';
 import './App.css';
 import {} from './firebase/config';
@@ -25,10 +25,6 @@ export default function App() {
                     <Route path="/explore/:planetName" component={PlanetDetails} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
-                    <Route path="/logout" render={(props) => {
-                        console.log('Logged Out!!!');
-                        return <Redirect to="/" />
-                    }} />
                     <Route path="/*" component={PageNotFound} />
                 </Switch>
             </div>
