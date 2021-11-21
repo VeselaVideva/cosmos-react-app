@@ -20,7 +20,7 @@ const Explore = () => {
     return (
         <div className="explore">
             <Suspense fallback={<Loading />}>
-                {planets.length > 0
+                { planets.length > 0
                     ? planets.map(x => <PlanetCard key={x.name} planet={x} />)
                     : <Loading />
                 }

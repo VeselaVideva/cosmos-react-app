@@ -20,7 +20,7 @@ const PlanetDetails = ({
     return (
         <div className="explore">
             <Suspense fallback={<Loading />}>
-                {planet !== undefined
+                { planet !== undefined
                     ? planet.filter(x => x !== undefined).map((x) => <DetailsCard key={x.name} planet={x} />)
                     : <Loading />
                 }

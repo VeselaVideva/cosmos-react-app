@@ -13,9 +13,7 @@ export async function getAll() {
 // Get only one planet
 export async function getOne(planetName) {
     const snapshot = await getDocs(collection(db, "planets"));
-    return snapshot.docs.map((doc) => {
-        if (doc.data().name === planetName) {
-            return doc.data();
-        }
+    return snapshot.docs.filter(doc => doc.data().name === planetName).map((doc) => {
+        return doc.data();
     });
 }
