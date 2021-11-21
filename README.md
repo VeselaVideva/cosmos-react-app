@@ -3,19 +3,31 @@
 
 ReactJS project for SoftUni's JS Web Developer learning path.
 
+### Tech Stack
+
+- React 17.0.2
+- React DOM 17.0.2
+- React Router DOM 5.3.0
+- Firebase 9.4.1
+
 
 ### External libraries
-**[react-tsparticles](https://www.npmjs.com/package/react-tsparticles)** - used for creating a custom background of night sky with moving stars. When you click anywhere with the mouse, you can add more stars in the sky.
+- **[react-tsparticles](https://www.npmjs.com/package/react-tsparticles)** - used for creating a custom background of night sky with moving stars. When you click anywhere with the mouse, you can add more stars in the sky.
 
-**[react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)** - used as a Hook for creating an animated text on the Home page.
+- **[react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)** - used as a Hook for creating an animated text on the Home page.
 
 
 ### Public (guests)
-Includes the following:
+
+- page Home (click on logo)
+- page Explore
+- page Sign In (Login)
+- page Sign Up (Register)
 
 
 ### Private (users)
-Includes the following:
+
+- 
 
 
 ### Author
