@@ -1,15 +1,14 @@
 import './Auth.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { auth } from '../../services/authService';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signIn } from '../../services/authService';
 
 const Login = ({
     history
 }) => {
     let historyHook = useHistory();
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
@@ -20,7 +19,7 @@ const Login = ({
             throw new Error(`All fields are required!`);
         }
 
-        signInWithEmailAndPassword(auth, email, password)
+        await signIn(email, password)
             .then((cred) => {
                 console.log('User logged in:', cred.user);
                 e.target.reset();
