@@ -1,15 +1,14 @@
 import './Auth.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { auth } from '../../services/authService';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signUp } from '../../services/authService';
 
 const Register = ({
     history
 }) => {
     let historyHook = useHistory();
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
@@ -20,7 +19,7 @@ const Register = ({
             throw new Error(`All fields are required!`);
         }
 
-        createUserWithEmailAndPassword(auth, email, password)
+        await signUp(email, password)
             .then((cred) => {
                 console.log('User created:', cred.user);
                 e.target.reset();
