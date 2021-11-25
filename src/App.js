@@ -11,7 +11,9 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Explore from './components/Explore/Explore'; // page showing all planets
 import PlanetDetails from './components/PlanetDetails/PlanetDetails';
-import PageNotFound from './components/PageNotFound/PageNotFound';
+import Populate from './components/Populate/Populate';
+import Species from './components/Species/Species';
+import PageNotFound from './components/PageNotFound/PageNotFound'; // 404 page
 
 export default function App() {
     return (
@@ -23,6 +25,8 @@ export default function App() {
                     <Route path="/" exact component={Home} />
                     <Route path="/explore" exact component={Explore} />
                     <Route path="/explore/:planetName" component={PlanetDetails} />
+                    <Route path="/all-species" component={Species} />
+                    <Route path="/populate" exact component={Populate} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/*" component={PageNotFound} />
