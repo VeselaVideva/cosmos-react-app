@@ -27,6 +27,7 @@ const Header = ({
 
     let userNav = (
         <div id="user">
+            <NavLink className="nav-link" activeClassName="active-nav-link" to="/populate">Populate</NavLink>
             <span className="nav-link">Welcome, { username }</span>
             <NavLink className="nav-link" to="/" onClick={handleLogout}>Sign Out</NavLink>
         </div>
@@ -44,6 +45,7 @@ const Header = ({
             <Logo/>
             <nav>
                 <NavLink className="nav-link" activeClassName="active-nav-link" to="/explore">Explore</NavLink>
+                <NavLink className="nav-link" activeClassName="active-nav-link" to="/all-species">All species</NavLink>
                 { currentUser !== null ? userNav : guestNav }
             </nav>
         </header>
