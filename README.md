@@ -7,7 +7,7 @@ ReactJS project for SoftUni's JS Web Developer learning path.
 
 - React 17.0.2
 - React Router 5.3.0
-- Firebase 9.4.1
+- Firebase 9.4.1 - auth, database, hosting
 
 
 ### External libraries
