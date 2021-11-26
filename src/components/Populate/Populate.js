@@ -27,7 +27,6 @@ const Populate = ({
 
         await addNew({ species, lifespan, image, description, planet, owner })
             .then(() => {
-                console.log('Success');
                 e.target.reset();
                 return owner;
             })
