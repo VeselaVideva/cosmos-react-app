@@ -27,3 +27,11 @@ export async function getAllSpecies() {
         return { ...doc.data(), id: doc.id };
     });
 }
+
+// Get species for a specific planet
+export async function getPlanetSpecies(planetName) {
+    const snapshot = await getDocs(collection(db, "species"));
+    return snapshot.docs.filter(doc => doc.data().planet === planetName).map((doc) => {
+        return { ...doc.data(), id: doc.id };
+    });
+}
