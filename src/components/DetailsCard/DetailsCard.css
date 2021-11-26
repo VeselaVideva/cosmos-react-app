@@ -6,7 +6,7 @@
     border-radius: 20px;
     padding: 3rem;
     margin: 1rem;
-    width: 50vw;
+    width: 70vw;
 }
 
 .planet-card-details img {
@@ -15,14 +15,17 @@
     border-radius: 20px;
     padding: 1rem;
     background: #000;
+    margin: 0 3rem 2rem 0;
 }
 
 .planet-card-details h2 {
     font-weight: 300;
+    margin: 0.875rem 0;
 }
 
 .planet-card-details p {
     line-height: 1.5rem;
+    margin: 0.875rem 0;
 }
 
 .planet-card-details span {
@@ -49,7 +52,7 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 50%;
     text-align: left;
     padding: 1rem;
     letter-spacing: 1px;
