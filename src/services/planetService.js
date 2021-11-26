@@ -6,7 +6,7 @@ import {
 
 const db = getFirestore();
 
-// Get all planets from my database
+// Get all planets from database
 export async function getAll() {
     const snapshot = await getDocs(collection(db, "planets"));
     return snapshot.docs.map((doc) => {
