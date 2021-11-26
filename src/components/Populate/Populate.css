@@ -4,3 +4,53 @@
     padding: 5rem;
     margin: 0 auto;
 }
+
+.populate form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 460px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 20px;
+    margin: 5% auto;
+    padding: 5rem;
+}
+
+.populate form input {
+    font-size: 0.875rem;
+    margin: 12px;
+    padding: 15px;
+    width: 260px;
+    border: none;
+    background-color: #fff;
+    letter-spacing: 1.5px;
+}
+
+.populate form select {
+    font-size: 0.875rem;
+    margin: 12px;
+    padding: 15px;
+    width: 284px;
+    border: none;
+    background-color: #fff;
+    letter-spacing: 1.5px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+.populate form .submit {
+    background-color: #4682b4;
+    cursor: pointer;
+    width: 200px;
+    height: 42px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.populate form .submit:hover {
+    background-color: #3e79ab;
+}
