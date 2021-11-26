@@ -6,7 +6,7 @@
     border-radius: 20px;
     padding: 2rem 3rem;
     margin: 1rem;
-    width: 35vw;
+    width: 31vw;
 }
 
 .species-card img {
@@ -20,6 +20,7 @@
 
 .species-card h2 {
     font-weight: 300;
+    margin-top: 0.5rem
 }
 
 .species-card p {
@@ -47,8 +48,9 @@
     border-radius: 20px;
     color: #fff;
     letter-spacing: 1.5px;
-    width: 100px;
-    margin: 0 0.5rem;
+    width: 90px;
+    margin: 0.5rem;
+    text-align: center;
 }
 
 .species-card .card-btn:hover {
