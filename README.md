@@ -19,14 +19,26 @@ ReactJS project for SoftUni's JS Web Developer learning path.
 ### Public (guests)
 
 - page Home (click on logo)
-- page Explore
+- page Explore (shows all planets from database)
+- page All species (shows all species from database)
 - page Sign In (Login)
 - page Sign Up (Register)
 
 
 ### Private (users)
 
-- 
+- page Populate (add new species to database)
+- Edit & Delete buttons (visible only for users which are creators of the species card)
+
+
+### Useful tools
+
+- [Alien names generator](https://www.fantasynamegenerators.com/alien-names.php)
+
+
+### Bonuses
+
+- Implemented iframe from NASA [Solar System Exploration](https://solarsystem.nasa.gov/planets/overview/) website - it's visible on /explore/:planetName page, it's interactive and the user can see a lot of details about the planet.
 
 
 ### Author
