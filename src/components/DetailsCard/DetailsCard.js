@@ -25,6 +25,7 @@ const DetailsCard = ({
             </div>
             <Suspense fallback={<Loading />}>
                 <iframe
+                    title={planet.name}
                     width="100%"
                     height="700px"
                     src={`https://solarsystem.nasa.gov/planets/${planet.name.toLowerCase()}/overview/`}
