@@ -1,14 +1,8 @@
 import './DetailsCard.css';
-import { Link } from 'react-router-dom';
 
 const DetailsCard = ({
     planet
 }) => {
-    const showInhabitants = async (e) => {
-        e.preventDefault();
-        
-    }
-
     return (
         <div className="planet-card-details" key={planet.name}>
             <img src={planet.image} alt={planet.name}/>
@@ -25,13 +19,6 @@ const DetailsCard = ({
                     <p><span>Description:</span> {planet.description}</p>
                 </div>
             </div>
-                <Link
-                    to={`/explore/${planet.name}`}
-                    className="card-btn"
-                    onClick={showInhabitants}
-                >
-                    See inhabitants
-                </Link>
         </div>
     );
 }

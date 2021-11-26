@@ -6,7 +6,7 @@
     border-radius: 20px;
     padding: 3rem;
     margin: 1rem;
-    max-width: 50vw;
+    width: 50vw;
 }
 
 .planet-card-details img {
