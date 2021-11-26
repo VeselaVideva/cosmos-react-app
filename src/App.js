@@ -1,7 +1,8 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './normalize.css';
 import './App.css';
 import {} from './firebase/config';
+import { useAuth } from './services/authService';
 
 // Components
 import Background from './components/Background';
@@ -13,23 +14,39 @@ import Explore from './components/Explore/Explore'; // page showing all planets
 import PlanetDetails from './components/PlanetDetails/PlanetDetails';
 import Populate from './components/Populate/Populate';
 import Species from './components/Species/Species';
-import PageNotFound from './components/PageNotFound/PageNotFound'; // 404 page
+import PageNotFound from './components/PageNotFound/PageNotFound';
+import AuthRouteGuard from './components/Auth/AuthRouteGuard'; // 404 page
 
 export default function App() {
+    let isAuthenticated = false;
+
+    const currentUser = useAuth();
+    console.log(currentUser);
+
+    if (currentUser !== null) {
+        isAuthenticated = true;
+    }
+
     return (
         <>
             <Background />
             <div className="App">
                 <Header />
                 <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/explore" exact component={Explore} />
-                    <Route path="/explore/:planetName" component={PlanetDetails} />
-                    <Route path="/all-species" component={Species} />
-                    <Route path="/populate" exact component={Populate} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/*" component={PageNotFound} />
+                    <Route path="/" exact component={ Home } />
+                    <Route path="/explore" exact component={ Explore } />
+                    <Route path="/explore/:planetName" component={ PlanetDetails } />
+                    <Route path="/all-species" component={ Species } />
+                    <Route path="/populate">
+                        { isAuthenticated ? <Populate /> : <Redirect to="/login" /> }
+                    </Route>
+                    <Route path="/login">
+                        { !isAuthenticated ? <Login /> : <AuthRouteGuard /> }
+                    </Route>
+                    <Route path="/register">
+                        { !isAuthenticated ? <Register /> : <AuthRouteGuard /> }
+                    </Route>
+                    <Route path="/*" component={ PageNotFound } />
                 </Switch>
             </div>
         </>
