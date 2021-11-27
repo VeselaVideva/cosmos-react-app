@@ -16,10 +16,8 @@ const PlanetDetails = ({
         planetService.getOne(match.params.planetName)
             .then(result => {
                 setPlanet(result);
-                return result;
             })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [match]);
 
     const [species, setSpecies] = useState([]);
 
@@ -27,10 +25,8 @@ const PlanetDetails = ({
         speciesService.getPlanetSpecies(match.params.planetName)
             .then(result => {
                 setSpecies(result);
-                return result;
             })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [match]);
 
     return (
         <div className="explore">

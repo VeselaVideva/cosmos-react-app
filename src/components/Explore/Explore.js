@@ -8,13 +8,10 @@ const Explore = () => {
     const [planets, setPlanets] = useState([]);
 
     useEffect(() => {
-        setTimeout(() => {
-            planetService.getAll()
-                .then(result => {
-                    setPlanets(result);
-                    return result;
-                })
-        }, 1000);
+        planetService.getAll()
+            .then(result => {
+                setPlanets(result);
+            })
     }, []);
 
     return (

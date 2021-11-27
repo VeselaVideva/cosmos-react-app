@@ -10,13 +10,10 @@ const Species = ({
     const [species, setSpecies] = useState([]);
 
     useEffect(() => {
-        setTimeout(() => {
-            speciesService.getAllSpecies()
-                .then(result => {
-                    setSpecies(result);
-                    return result;
-                })
-        }, 1000);
+        speciesService.getAllSpecies()
+            .then(result => {
+                setSpecies(result);
+            })
     }, []);
 
     return (
