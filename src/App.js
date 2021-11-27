@@ -13,6 +13,7 @@ import Register from './components/Auth/Register';
 import Explore from './components/Explore/Explore'; // page showing all planets
 import PlanetDetails from './components/PlanetDetails/PlanetDetails';
 import Populate from './components/Populate/Populate';
+import Profile from './components/Profile/Profile';
 import Species from './components/Species/Species';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import AuthRouteGuard from './components/Auth/AuthRouteGuard'; // 404 page
@@ -39,6 +40,9 @@ export default function App() {
                     <Route path="/all-species" component={ Species } />
                     <Route path="/populate">
                         { isAuthenticated ? <Populate /> : <Redirect to="/login" /> }
+                    </Route>
+                    <Route path="/profile">
+                        { isAuthenticated ? <Profile /> : <Redirect to="/login" /> }
                     </Route>
                     <Route path="/login">
                         { !isAuthenticated ? <Login /> : <AuthRouteGuard /> }
