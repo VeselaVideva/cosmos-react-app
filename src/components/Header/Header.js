@@ -28,7 +28,7 @@ const Header = ({
     let userNav = (
         <div id="user">
             <NavLink className="nav-link" activeClassName="active-nav-link" to="/populate">Populate</NavLink>
-            <span className="nav-link">Welcome, {username}</span>
+            <NavLink className="nav-link" activeClassName="active-nav-link" to="/profile">&#128125; {username}</NavLink>
             <NavLink className="nav-link" to="/" onClick={handleLogout}>Sign Out</NavLink>
         </div>
     );
