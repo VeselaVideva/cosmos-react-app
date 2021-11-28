@@ -17,6 +17,7 @@ import Profile from './components/Profile/Profile';
 import Species from './components/Species/Species';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import AuthRouteGuard from './components/Auth/AuthRouteGuard'; // 404 page
+import Ownership from './components/Ownership/Ownership';
 
 export default function App() {
     let isAuthenticated = false;
@@ -52,6 +53,7 @@ export default function App() {
                     </Route>
                     <Route path="/*" component={ PageNotFound } />
                 </Switch>
+                <Ownership />
             </div>
         </>
     );

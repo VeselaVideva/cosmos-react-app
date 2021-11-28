@@ -1,0 +1,28 @@
+.ownership {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 20px;
+    display: inline-flex;
+    position: fixed;
+    right: -250px;
+    bottom: 1rem;
+    transition: 1s;
+}
+
+.ownership:hover {
+    right: 0;
+}
+
+.ownership a {
+    color: #4682b4;
+    padding: 0 0.5rem;
+}
+
+.globe {
+    padding: 1.2rem;
+    cursor: pointer;
+}
+
+.creator {
+    padding: 1.2rem 1.2rem 1.2rem 0;
+}
