@@ -4,18 +4,28 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 const Home = () => {
     const { text } = useTypewriter({
         words: [
-            'Hello dear traveler',
-            'If you are looking for a new journey',
+            'Hello dear space traveler',
+            'If you are looking for a new adventure',
             'This is the right place to start',
-            'Explore our destinations and be safe'
+            'Explore all the planets and be safe'
         ],
-        loop: 0,
+        loop: 1,
     });
 
     return (
         <div className="home">
             <span>{text}</span>
             <Cursor />
+            <div className="video">
+                <video
+                    src="/space-walk.mp4"
+                    width="1080"
+                    height="608"
+                    controls="controls"
+                    autoplay="true"
+                    loop="true"
+                />
+            </div>
         </div>
     );
 }
