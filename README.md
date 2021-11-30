@@ -44,6 +44,7 @@ ReactJS project for SoftUni's JS Web Developer learning path.
 ### Bonuses
 
 - Implemented iframe from NASA [Solar System Exploration](https://solarsystem.nasa.gov/planets/overview/) website - it's visible on /explore/:planetName page, it's interactive and the user can see a lot of details about the planet.
+- Implemented video of man walking on a planet, with autoplay, music and infinite repeat - it's visible on the Home page.
 
 
 ### Author
