@@ -5,7 +5,7 @@ const Ownership = () => {
         <div className="ownership">
             <span className="globe">&#127758;</span>
             <span className="creator">Made with ♥ by
-                <a href="https://videva.dev/" target="_blank">
+                <a href="https://videva.dev/" target="_blank" rel="noreferrer noopener">
                     Vesela Videva
                 </a>
             </span>
