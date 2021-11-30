@@ -3,6 +3,9 @@
 
 ReactJS project for SoftUni's JS Web Developer learning path.
 
+**LIVE DEMO**: [https://cosmos-react-app.web.app/](https://cosmos-react-app.web.app/)
+
+
 ### Tech Stack
 
 - React 17.0.2
