@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 460px;
+    width: 50vw;
     background-color: rgba(0, 0, 0, .1);
     border-radius: 20px;
     margin: 5% auto;
@@ -20,7 +20,7 @@
     font-size: 0.875rem;
     margin: 12px;
     padding: 15px;
-    width: 260px;
+    width: 350px;
     border: none;
     background-color: #fff;
     letter-spacing: 1.5px;
@@ -30,7 +30,7 @@
     font-size: 0.875rem;
     margin: 12px;
     padding: 15px;
-    width: 284px;
+    width: 374px;
     border: none;
     background-color: #fff;
     letter-spacing: 1.5px;
