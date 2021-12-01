@@ -15,6 +15,9 @@ const Profile = () => {
             .then(result => {
                 setSpecies(result);
             })
+            .catch((err) => {
+                console.log(err.message);
+            })
     }, [currentUser]);
 
     return (

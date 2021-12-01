@@ -16,11 +16,13 @@ const Header = ({
     const handleLogout = async (e) => {
         e.preventDefault();
 
-        await logOut().then(() => {
-            console.log('Logged out!');
-        }).catch((err) => {
-            console.log(err.message);
-        });
+        await logOut()
+            .then(() => {
+                console.log('Logged out!');
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
 
         historyHook.push('/');
     }

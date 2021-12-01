@@ -12,6 +12,9 @@ const Explore = () => {
             .then(result => {
                 setPlanets(result);
             })
+            .catch((err) => {
+                console.log(err.message);
+            })
     }, []);
 
     return (

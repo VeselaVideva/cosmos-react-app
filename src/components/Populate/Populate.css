@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.populate h1 {
+    margin-bottom: 3rem;
+}
+
 .populate form {
     display: flex;
     flex-direction: column;
@@ -49,8 +53,13 @@ select:focus {
     text-transform: uppercase;
     border-radius: 20px;
     color: #fff;
+    margin: 2rem 0 0;
 }
 
 .populate form .submit:hover {
     background-color: #3e79ab;
+}
+
+.populate .accent {
+    color: #4682b4;
 }

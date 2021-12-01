@@ -17,6 +17,9 @@ const PlanetDetails = ({
             .then(result => {
                 setPlanet(result);
             })
+            .catch((err) => {
+                console.log(err.message);
+            })
     }, [match]);
 
     const [species, setSpecies] = useState([]);

@@ -14,6 +14,9 @@ const Species = ({
             .then(result => {
                 setSpecies(result);
             })
+            .catch((err) => {
+                console.log(err.message);
+            })
     }, []);
 
     return (

@@ -2,7 +2,7 @@ import './PlanetCard.css';
 import { Link } from 'react-router-dom';
 
 const PlanetCard = ({
-    planet,
+    planet
 }) => {
     return (
         <div className="planet-card" key={planet.name}>
