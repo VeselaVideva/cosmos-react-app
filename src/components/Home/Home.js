@@ -21,9 +21,9 @@ const Home = () => {
                     src="/space-walk.mp4"
                     width="1080"
                     height="608"
-                    controls="controls"
-                    autoplay="true"
-                    loop="true"
+                    controls
+                    autoPlay
+                    loop
                 />
             </div>
         </div>
