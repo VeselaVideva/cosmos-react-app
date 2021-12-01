@@ -13,6 +13,7 @@ import Register from './components/Auth/Register';
 import Explore from './components/Explore/Explore'; // page showing all planets
 import PlanetDetails from './components/PlanetDetails/PlanetDetails';
 import Populate from './components/Populate/Populate';
+import Update from './components/Populate/Update';
 import Profile from './components/Profile/Profile';
 import Species from './components/Species/Species';
 import PageNotFound from './components/PageNotFound/PageNotFound';
@@ -23,7 +24,6 @@ export default function App() {
     let isAuthenticated = false;
 
     const currentUser = useAuth();
-    console.log(currentUser);
 
     if (currentUser !== null) {
         isAuthenticated = true;
@@ -38,7 +38,10 @@ export default function App() {
                     <Route path="/" exact component={ Home } />
                     <Route path="/explore" exact component={ Explore } />
                     <Route path="/explore/:planetName" component={ PlanetDetails } />
-                    <Route path="/all-species" component={ Species } />
+                    <Route path="/all-species" exact component={ Species } />
+                    <Route path="/all-species/:speciesId/edit">
+                        { isAuthenticated ? <Update /> : <Redirect to="/login" /> }
+                    </Route>
                     <Route path="/populate">
                         { isAuthenticated ? <Populate /> : <Redirect to="/login" /> }
                     </Route>
