@@ -22,7 +22,7 @@ const Home = () => {
                     width="1080"
                     height="608"
                     controls
-                    autoPlay
+                    autoPlay="autoplay"
                     loop
                 />
             </div>
