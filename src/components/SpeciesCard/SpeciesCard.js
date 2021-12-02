@@ -1,12 +1,17 @@
 import './SpeciesCard.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../services/authService';
+import { deleteOne } from '../../services/speciesService';
 
 const SpeciesCard = ({
     species
 }) => {
     const currentUser = useAuth();
     let isOwner = currentUser?.email === species.owner;
+
+    const deleteHandler = async (id) => {
+        await deleteOne(id);
+    }
 
     return (
         <div className="species-card" key={species.id}>
@@ -23,9 +28,9 @@ const SpeciesCard = ({
                     <p className="card-owner"><span>Added by:</span> {species.owner}</p>
                         { currentUser !== null && isOwner === true
                             ? (
-                                <div>
+                                <div className="owner-buttons">
                                     <Link to={`/all-species/${species.id}/edit`} className="card-btn">Edit</Link>
-                                    <Link to={`/all-species/${species.id}/delete`} className="card-btn">Delete</Link>
+                                    <div className="card-btn" onClick={() => deleteHandler(species.id)}>Delete</div>
                                 </div>
                             )
                             : '' }

@@ -5,7 +5,8 @@ import {
     getDoc,
     getDocs,
     addDoc,
-    updateDoc
+    updateDoc,
+    deleteDoc
 } from "firebase/firestore";
 
 const db = getFirestore();
@@ -63,4 +64,10 @@ export async function updateOne(speciesId, { species, lifespan, image, descripti
     const docRef = doc(db, "species", speciesId);
     const payload = { species, lifespan, image, description };
     await updateDoc(docRef, payload);
+}
+
+// Delete existing species
+export async function deleteOne(speciesId) {
+    const docRef = doc(db, "species", speciesId);
+    await deleteDoc(docRef);
 }

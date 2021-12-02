@@ -1,7 +1,7 @@
 import './Species.css';
 import Loading from '../Loading/Loading';
 import { useEffect, useState, Suspense } from 'react';
-import * as speciesService from '../../services/speciesService';
+import { getAllSpecies } from '../../services/speciesService';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
 const Species = ({
@@ -10,7 +10,7 @@ const Species = ({
     const [species, setSpecies] = useState([]);
 
     useEffect(() => {
-        speciesService.getAllSpecies()
+        getAllSpecies()
             .then(result => {
                 setSpecies(result);
             })
