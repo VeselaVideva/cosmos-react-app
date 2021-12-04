@@ -19,8 +19,8 @@ const Home = () => {
             <div className="video">
                 <video
                     src="/space-walk.mp4"
-                    width="1080"
-                    height="608"
+                    width="1280"
+                    height="720"
                     controls
                     autoPlay="autoplay"
                     loop
