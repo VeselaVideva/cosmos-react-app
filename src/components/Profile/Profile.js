@@ -1,12 +1,17 @@
 import './Profile.css';
-import { useAuth } from '../../services/authService';
+
+import { useContext, useEffect, useState, Suspense } from 'react';
+
+import { AuthContext } from '../../contexts/AuthContext';
+
 import Loading from '../Loading/Loading';
-import { useEffect, useState, Suspense } from 'react';
-import * as speciesService from '../../services/speciesService';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
+import * as speciesService from '../../services/speciesService';
+
+
 const Profile = () => {
-    const currentUser = useAuth();
+    const { currentUser } = useContext(AuthContext);
 
     const [species, setSpecies] = useState([]);
 

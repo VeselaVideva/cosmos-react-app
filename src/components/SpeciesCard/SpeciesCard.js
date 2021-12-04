@@ -1,16 +1,24 @@
 import './SpeciesCard.css';
+
+import { useContext } from 'react';
+
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../services/authService';
+
+import { AuthContext } from '../../contexts/AuthContext';
+
 import { deleteOne } from '../../services/speciesService';
+
 
 const SpeciesCard = ({
     species
 }) => {
-    const currentUser = useAuth();
+    const { currentUser } = useContext(AuthContext);
+
     let isOwner = currentUser?.email === species.owner;
 
     const deleteHandler = async (id) => {
         await deleteOne(id);
+        // Redirect...
     }
 
     return (

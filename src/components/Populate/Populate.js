@@ -1,14 +1,20 @@
 import './Populate.css';
+
+import { useContext } from 'react';
+
 import { useHistory } from 'react-router-dom';
-import { useAuth } from '../../services/authService';
+
+import { AuthContext } from '../../contexts/AuthContext';
+
 import { addNew } from '../../services/speciesService';
+
 
 const Populate = ({
     history
 }) => {
     let historyHook = useHistory();
 
-    const currentUser = useAuth();
+    const { currentUser } = useContext(AuthContext);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +45,7 @@ const Populate = ({
 
     return (
         <div className="populate">
-            <form onSubmit={onFormSubmit}>
+            <form onSubmit={ onFormSubmit }>
                 <h1>Add new species</h1>
                 <label htmlFor="species">Species name:</label>
                 <input type="text" name="species" placeholder="Species name" required />

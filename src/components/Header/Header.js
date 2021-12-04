@@ -1,16 +1,25 @@
 import './Header.css';
+
+import { useContext } from 'react';
+
+import { NavLink, useHistory } from 'react-router-dom';
+
+import { AuthContext } from '../../contexts/AuthContext';
+
 import Logo from '../Logo/Logo';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { useAuth, logOut } from '../../services/authService';
+
+import { logOut } from '../../services/authService';
+
 import { getUsername } from '../../utils/getUsername';
+
 
 const Header = ({
     history
 }) => {
     let historyHook = useHistory();
 
-    const currentUser = useAuth();
+    const { currentUser } = useContext(AuthContext);
+
     const username = getUsername(currentUser);
 
     const handleLogout = async (e) => {
@@ -30,8 +39,8 @@ const Header = ({
     let userNav = (
         <div id="user">
             <NavLink className="nav-link" activeClassName="active-nav-link" to="/populate">Populate</NavLink>
-            <NavLink className="nav-link" activeClassName="active-nav-link" to="/profile">&#128125; {username}</NavLink>
-            <NavLink className="nav-link" to="/" onClick={handleLogout}>Sign Out</NavLink>
+            <NavLink className="nav-link" activeClassName="active-nav-link" to="/profile">&#128125; { username }</NavLink>
+            <NavLink className="nav-link" to="/" onClick={ handleLogout }>Sign Out</NavLink>
         </div>
     );
 
