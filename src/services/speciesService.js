@@ -9,6 +9,7 @@ import {
     deleteDoc
 } from "firebase/firestore";
 
+
 const db = getFirestore();
 
 // Get all species

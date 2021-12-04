@@ -1,7 +1,9 @@
 import './Auth.css';
-import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+
+import { Link, useHistory } from 'react-router-dom';
+
 import { signIn } from '../../services/authService';
+
 
 const Login = ({
     history
@@ -33,7 +35,7 @@ const Login = ({
 
     return (
         <div className="login">
-            <form onSubmit={onFormSubmit}>
+            <form onSubmit={ onFormSubmit }>
                 <h1>Sign In</h1>
                 <input type="email" name="email" placeholder="Email" required/>
                 <input type="password" name="password" placeholder="Password" required/>

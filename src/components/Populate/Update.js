@@ -1,7 +1,11 @@
 import './Populate.css';
+
 import { useEffect, useState } from 'react';
+
 import { useHistory, useParams } from 'react-router-dom';
+
 import { getOne, updateOne } from '../../services/speciesService';
+
 
 const Update = ({
     history
@@ -49,7 +53,7 @@ const Update = ({
 
     return (
         <div className="populate">
-            <form onSubmit={onFormSubmit}>
+            <form onSubmit={ onFormSubmit }>
                 <h1>Update <span className="accent">{species.species}</span> info</h1>
                 <label htmlFor="species">Species name:</label>
                 <input type="text" name="species" placeholder={species.species} required />

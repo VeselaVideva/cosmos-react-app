@@ -1,8 +1,12 @@
 import './Species.css';
-import Loading from '../Loading/Loading';
+
 import { useEffect, useState, Suspense } from 'react';
-import { getAllSpecies } from '../../services/speciesService';
+
+import Loading from '../Loading/Loading';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
+
+import { getAllSpecies } from '../../services/speciesService';
+
 
 const Species = ({
     owner

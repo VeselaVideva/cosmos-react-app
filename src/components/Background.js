@@ -1,5 +1,6 @@
 import Particles from "react-tsparticles";
 
+
 const Background = () => {
     const particlesInit = (main) => {
         // console.log(main);

@@ -1,5 +1,7 @@
 import './Home.css';
+
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+
 
 const Home = () => {
     const { text } = useTypewriter({
@@ -14,7 +16,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <span>{text}</span>
+            <span>{ text }</span>
             <Cursor />
             <div className="video">
                 <video

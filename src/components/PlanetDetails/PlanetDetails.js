@@ -1,10 +1,14 @@
 import './PlanetDetails.css';
-import Loading from '../Loading/Loading';
+
 import { useEffect, useState, Suspense } from 'react';
-import * as planetService from '../../services/planetService';
-import * as speciesService from '../../services/speciesService';
+
+import Loading from '../Loading/Loading';
 import DetailsCard from '../DetailsCard/DetailsCard';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
+
+import * as planetService from '../../services/planetService';
+import * as speciesService from '../../services/speciesService';
+
 
 const PlanetDetails = ({
     match,

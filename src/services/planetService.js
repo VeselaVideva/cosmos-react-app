@@ -4,6 +4,7 @@ import {
     getDocs
 } from "firebase/firestore";
 
+
 const db = getFirestore();
 
 // Get all planets from database

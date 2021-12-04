@@ -1,6 +1,9 @@
 import './DetailsCard.css';
-import Loading from '../Loading/Loading';
+
 import { Suspense } from 'react';
+
+import Loading from '../Loading/Loading';
+
 
 const DetailsCard = ({
     planet

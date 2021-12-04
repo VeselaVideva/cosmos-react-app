@@ -1,8 +1,12 @@
 import './Explore.css';
-import Loading from '../Loading/Loading';
+
 import { useEffect, useState, Suspense } from 'react';
-import * as planetService from '../../services/planetService';
+
+import Loading from '../Loading/Loading';
 import PlanetCard from '../Card/PlanetCard';
+
+import * as planetService from '../../services/planetService';
+
 
 const Explore = () => {
     const [planets, setPlanets] = useState([]);
