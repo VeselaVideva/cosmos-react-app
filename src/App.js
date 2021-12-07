@@ -1,7 +1,6 @@
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './normalize.css';
 import './App.css';
-
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import {} from './firebase/config';
 

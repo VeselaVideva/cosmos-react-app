@@ -1,8 +1,6 @@
-import './Populate.css';
-
 import { useContext } from 'react';
-
 import { useHistory } from 'react-router-dom';
+import './Populate.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 

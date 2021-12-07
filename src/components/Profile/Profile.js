@@ -1,6 +1,5 @@
-import './Profile.css';
-
 import { useContext, useEffect, useState, Suspense } from 'react';
+import './Profile.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 

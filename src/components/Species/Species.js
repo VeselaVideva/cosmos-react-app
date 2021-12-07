@@ -1,6 +1,5 @@
-import './Species.css';
-
 import { useEffect, useState, Suspense } from 'react';
+import './Species.css';
 
 import Loading from '../Loading/Loading';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';

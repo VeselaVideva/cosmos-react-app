@@ -1,8 +1,6 @@
-import './SpeciesCard.css';
-
 import { useContext } from 'react';
-
 import { Link } from 'react-router-dom';
+import './SpeciesCard.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 

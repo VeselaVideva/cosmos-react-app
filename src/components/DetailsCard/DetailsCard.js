@@ -1,6 +1,5 @@
-import './DetailsCard.css';
-
 import { Suspense } from 'react';
+import './DetailsCard.css';
 
 import Loading from '../Loading/Loading';
 

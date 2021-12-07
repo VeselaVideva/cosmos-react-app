@@ -1,6 +1,5 @@
-import './Auth.css';
-
 import { Link, useHistory } from 'react-router-dom';
+import './Auth.css';
 
 import { signUp } from '../../services/authService';
 

@@ -1,15 +1,12 @@
-import './Header.css';
-
 import { useContext } from 'react';
-
 import { NavLink, useHistory } from 'react-router-dom';
+import './Header.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
 import Logo from '../Logo/Logo';
 
 import { logOut } from '../../services/authService';
-
 import { getUsername } from '../../utils/getUsername';
 
 

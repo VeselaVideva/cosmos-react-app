@@ -1,6 +1,5 @@
-import './PlanetCard.css';
-
 import { Link } from 'react-router-dom';
+import './PlanetCard.css';
 
 
 const PlanetCard = ({

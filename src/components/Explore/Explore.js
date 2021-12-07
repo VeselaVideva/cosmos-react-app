@@ -1,6 +1,5 @@
-import './Explore.css';
-
 import { useEffect, useState, Suspense } from 'react';
+import './Explore.css';
 
 import Loading from '../Loading/Loading';
 import PlanetCard from '../Card/PlanetCard';

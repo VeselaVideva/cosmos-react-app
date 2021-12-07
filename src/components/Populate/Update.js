@@ -1,8 +1,6 @@
-import './Populate.css';
-
 import { useEffect, useState } from 'react';
-
 import { useHistory, useParams } from 'react-router-dom';
+import './Populate.css';
 
 import { getOne, updateOne } from '../../services/speciesService';
 

@@ -1,6 +1,5 @@
-import './PlanetDetails.css';
-
 import { useEffect, useState, Suspense } from 'react';
+import './PlanetDetails.css';
 
 import Loading from '../Loading/Loading';
 import DetailsCard from '../DetailsCard/DetailsCard';
