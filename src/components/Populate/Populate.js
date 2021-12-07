@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Populate.css';
 
@@ -11,6 +11,8 @@ const Populate = ({
     history
 }) => {
     let historyHook = useHistory();
+
+    const [error, setError] = useState([]);
 
     const { currentUser } = useContext(AuthContext);
 
@@ -26,33 +28,33 @@ const Populate = ({
         const owner = currentUser.email;
 
         if (species === '' || lifespan === '' || image === '' || description === '' || planet === null) {
-            throw new Error(`All fields are required!`);
+            return setError('All fields are required!');
         }
 
         await addNew({ species, lifespan, image, description, planet, owner })
             .then(() => {
                 e.target.reset();
+                historyHook.push('/all-species');
                 return owner;
             })
             .catch((err) => {
-                console.log(err.message);
+                return setError(err.message);
             })
-
-        historyHook.push('/all-species');
     }
 
     return (
         <div className="populate">
+            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <form onSubmit={ onFormSubmit }>
                 <h1>Add new species</h1>
                 <label htmlFor="species">Species name:</label>
-                <input type="text" name="species" placeholder="Species name" required />
+                <input type="text" name="species" placeholder="Species name" />
                 <label htmlFor="lifespan">Lifespan:</label>
-                <input type="number" name="lifespan" placeholder="Lifespan" required />
+                <input type="number" name="lifespan" placeholder="Lifespan" />
                 <label htmlFor="image">Image:</label>
-                <input type="url" name="image" placeholder="https://" required />
+                <input type="url" name="image" placeholder="https://" />
                 <label htmlFor="description">Description:</label>
-                <input type="text" name="description" placeholder="Description" required />
+                <input type="text" name="description" placeholder="Description" />
                 <label htmlFor="planet">Planet:</label>
                 <select name="planet">
                     <option value="Mercury">Mercury</option>

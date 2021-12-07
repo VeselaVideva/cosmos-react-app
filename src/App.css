@@ -5,3 +5,17 @@
   left: 0;
   right: 0;
 }
+
+.error-box {
+  background-color: rgba(255,0,0,.5);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 18vh;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './Auth.css';
 
@@ -9,6 +10,8 @@ const Register = ({
 }) => {
     let historyHook = useHistory();
 
+    const [error, setError] = useState([]);
+
     const onFormSubmit = async (e) => {
         e.preventDefault();
 
@@ -17,27 +20,27 @@ const Register = ({
         const password = formData.get('password').trim();
 
         if (email === '' || password === '') {
-            throw new Error(`All fields are required!`);
+            return setError('All fields are required!');
         }
 
         await signUp(email, password)
             .then((cred) => {
                 console.log('User created:', cred.user);
                 e.target.reset();
+                historyHook.push('/explore');
             })
             .catch((err) => {
-                console.log(err.message);
+                return setError(err.message);
             })
-
-        historyHook.push('/explore');
     };
 
     return (
         <div className="register">
+            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <form onSubmit={ onFormSubmit }>
                 <h1>Sign Up</h1>
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
                 <input className="submit" type="submit" value="Sign up"/>
                 <p>Already have an account? <Link className="internal-link" to="/login">Sign In</Link></p>
             </form>
