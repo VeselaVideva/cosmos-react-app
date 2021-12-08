@@ -37,7 +37,7 @@ const Register = ({
     return (
         <div className="register">
             { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
-            <form onSubmit={ onFormSubmit }>
+            <form onSubmit={ onFormSubmit } autoComplete="off">
                 <h1>Sign Up</h1>
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
