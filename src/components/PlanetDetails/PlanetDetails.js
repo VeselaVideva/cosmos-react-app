@@ -5,8 +5,8 @@ import Loading from '../Loading/Loading';
 import DetailsCard from '../DetailsCard/DetailsCard';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
-import * as planetService from '../../services/planetService';
-import * as speciesService from '../../services/speciesService';
+import { getOne } from '../../services/planetService';
+import { getPlanetSpecies } from '../../services/speciesService';
 
 
 const PlanetDetails = ({
@@ -16,7 +16,7 @@ const PlanetDetails = ({
     const [planet, setPlanet] = useState([]);
 
     useEffect(() => {
-        planetService.getOne(match.params.planetName)
+        getOne(match.params.planetName)
             .then(result => {
                 setPlanet(result);
             })
@@ -28,7 +28,7 @@ const PlanetDetails = ({
     const [species, setSpecies] = useState([]);
 
     useEffect(() => {
-        speciesService.getPlanetSpecies(match.params.planetName)
+        getPlanetSpecies(match.params.planetName)
             .then(result => {
                 setSpecies(result);
             })
