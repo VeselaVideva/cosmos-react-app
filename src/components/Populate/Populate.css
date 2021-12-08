@@ -1,15 +1,19 @@
 .populate {
     color: #fff;
     text-align: center;
-    padding: 5rem;
-    margin: 0 auto;
+    margin: 5% auto;
 }
 
 .populate h1 {
     margin-bottom: 3rem;
 }
 
-.populate form {
+.populate h2 {
+    font-weight: 300;
+}
+
+.populate form,
+.populate .flex {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +21,7 @@
     background-color: rgba(0, 0, 0, .1);
     border-radius: 20px;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 3rem;
 }
 
 .populate form input {
@@ -62,4 +66,44 @@ select:focus {
 
 .populate .accent {
     color: #4682b4;
+    font-weight: 600;
+}
+
+.buttons-block {
+    display: inline-flex;
+    margin-top: 1rem;
+}
+
+.populate .confirm-btn {
+    -webkit-appearance: button;
+    font-size: 0.875rem;
+    background-color: #4682b4;
+    cursor: pointer;
+    padding: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #fff;
+    letter-spacing: 1.5px;
+    width: 90px;
+    margin: 0.5rem 1rem;
+    text-align: center;
+}
+
+.populate .confirm-btn:hover {
+    background-color: #3e79ab;
+}
+
+.populate .alert-btn {
+    background-color: rgba(255,0,0,.7);
+}
+
+.populate .alert-btn:hover {
+    background-color: rgba(255,0,0,.8);
+}
+
+.crying-alien {
+    width: 75%;
+    margin: 1rem;
+    border-radius: 20px;
 }
