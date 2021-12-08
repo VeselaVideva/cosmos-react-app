@@ -18,6 +18,7 @@ import Explore from './components/Explore/Explore'; // page showing all planets
 import PlanetDetails from './components/PlanetDetails/PlanetDetails';
 import Populate from './components/Populate/Populate'; // create
 import Update from './components/Populate/Update';
+import Delete from './components/Populate/Delete';
 import Profile from './components/Profile/Profile';
 import Species from './components/Species/Species'; // catalog
 import PageNotFound from './components/PageNotFound/PageNotFound'; // 404 page
@@ -43,6 +44,9 @@ export default function App() {
                         <Route path="/all-species" exact component={ Species } />
                         <Route path="/all-species/:speciesId/edit">
                             { isAuth ? <Update /> : <Redirect to="/login" /> }
+                        </Route>
+                        <Route path="/all-species/:speciesId/delete">
+                            { isAuth ? <Delete /> : <Redirect to="/login" /> }
                         </Route>
                         <Route path="/populate">
                             { isAuth ? <Populate /> : <Redirect to="/login" /> }

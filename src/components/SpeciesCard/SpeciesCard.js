@@ -4,8 +4,6 @@ import './SpeciesCard.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
-import { deleteOne } from '../../services/speciesService';
-
 
 const SpeciesCard = ({
     species
@@ -13,11 +11,6 @@ const SpeciesCard = ({
     const { currentUser } = useContext(AuthContext);
 
     let isOwner = currentUser?.email === species.owner;
-
-    const deleteHandler = async (id) => {
-        await deleteOne(id);
-        // Redirect...
-    }
 
     return (
         <div className="species-card" key={species.id}>
@@ -36,7 +29,7 @@ const SpeciesCard = ({
                             ? (
                                 <div className="owner-buttons">
                                     <Link to={`/all-species/${species.id}/edit`} className="card-btn">Edit</Link>
-                                    <div className="card-btn" onClick={() => deleteHandler(species.id)}>Delete</div>
+                                    <Link to={`/all-species/${species.id}/delete`} className="card-btn">Delete</Link>
                                 </div>
                             )
                             : '' }
