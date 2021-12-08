@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Populate.css';
 
-import { getOne, updateOne } from '../../services/speciesService';
+import { updateOne } from '../../services/speciesService';
+import { planets } from '../../utils/planetsList';
+import useSpeciesState from '../../hooks/useSpeciesState';
 
 
 const Update = ({
@@ -10,21 +12,10 @@ const Update = ({
 }) => {
     let historyHook = useHistory();
 
-    const match = useParams();
-    const speciesId = match.speciesId;
+    const { speciesId } = useParams();
 
-    const [species, setSpecies] = useState([]);
+    const [species, setSpecies] = useSpeciesState(speciesId);
     const [error, setError] = useState([]);
-
-    useEffect(() => {
-        getOne(speciesId)
-            .then(result => {
-                setSpecies(result);
-            })
-            .catch((err) => {
-                return setError(err.message);
-            })
-    }, [speciesId]);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -34,12 +25,13 @@ const Update = ({
         const lifespan = formData.get('lifespan');
         const image = formData.get('image');
         const description = formData.get('description');
+        const planet = formData.get('planet');
 
         if (species === '' || lifespan === '' || image === '' || description === '') {
             return setError('All fields are required!');
         }
 
-        await updateOne(speciesId, { species, lifespan, image, description })
+        await updateOne(speciesId, { species, lifespan, image, description, planet })
             .then(() => {
                 e.target.reset();
                 historyHook.push('/all-species');
@@ -52,16 +44,23 @@ const Update = ({
     return (
         <div className="populate">
             { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
-            <form method="POST" onSubmit={ onFormSubmit }>
+            <form onSubmit={ onFormSubmit } autoComplete="off">
                 <h1>Update <span className="accent">{species.species}</span> info</h1>
                 <label htmlFor="species">Species name:</label>
-                <input type="text" name="species" placeholder={species.species} />
+                <input type="text" name="species" defaultValue={species.species} />
                 <label htmlFor="lifespan">Lifespan:</label>
-                <input type="number" name="lifespan" placeholder={species.lifespan} />
+                <input type="number" name="lifespan" defaultValue={species.lifespan} />
                 <label htmlFor="image">Image:</label>
-                <input type="url" name="image" placeholder={species.image} />
+                <input type="url" name="image" defaultValue={species.image} />
                 <label htmlFor="description">Description:</label>
-                <input type="text" name="description" placeholder={species.description} />
+                <input type="text" name="description" defaultValue={species.description} />
+                <label htmlFor="planet">Planet:</label>
+                <select name="planet"
+                        value={species.planet}
+                        onChange={ (e) => setSpecies(s => ({ ...s, planet: e.target.value })) }
+                >
+                    { planets.map(x => <option key={x.value} value={x.value}>{x.name}</option>) }
+                </select>
                 <input className="submit" type="submit" value="Update species"/>
             </form>
         </div>
