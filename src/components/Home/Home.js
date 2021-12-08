@@ -24,7 +24,8 @@ const Home = () => {
                     width="1280"
                     height="720"
                     controls
-                    autoPlay="autoplay"
+                    autoPlay
+                    muted
                     loop
                 />
             </div>
