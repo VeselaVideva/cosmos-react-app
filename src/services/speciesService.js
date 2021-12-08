@@ -61,9 +61,9 @@ export async function addNew({ species, lifespan, image, description, planet, ow
 }
 
 // Edit existing species
-export async function updateOne(speciesId, { species, lifespan, image, description }) {
+export async function updateOne(speciesId, { species, lifespan, image, description, planet }) {
     const docRef = doc(db, "species", speciesId);
-    const payload = { species, lifespan, image, description };
+    const payload = { species, lifespan, image, description, planet };
     await updateDoc(docRef, payload);
 }
 
