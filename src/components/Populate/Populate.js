@@ -5,6 +5,7 @@ import './Populate.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import { addNew } from '../../services/speciesService';
+import { planets } from '../../utils/planetsList';
 
 
 const Populate = ({
@@ -45,7 +46,7 @@ const Populate = ({
     return (
         <div className="populate">
             { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
-            <form onSubmit={ onFormSubmit }>
+            <form method="POST"  onSubmit={ onFormSubmit } autoComplete="off">
                 <h1>Add new species</h1>
                 <label htmlFor="species">Species name:</label>
                 <input type="text" name="species" placeholder="Species name" />
@@ -57,15 +58,7 @@ const Populate = ({
                 <input type="text" name="description" placeholder="Description" />
                 <label htmlFor="planet">Planet:</label>
                 <select name="planet">
-                    <option value="Mercury">Mercury</option>
-                    <option value="Venus">Venus</option>
-                    <option value="Earth">Earth</option>
-                    <option value="Mars">Mars</option>
-                    <option value="Jupiter">Jupiter</option>
-                    <option value="Saturn">Saturn</option>
-                    <option value="Uranus">Uranus</option>
-                    <option value="Neptune">Neptune</option>
-                    <option value="Pluto">Pluto</option>
+                    { planets.map(x => <option key={x.value} value={x.value}>{x.name}</option>) }
                 </select>
                 <input className="submit" type="submit" value="Add new species"/>
             </form>
