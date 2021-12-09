@@ -38,7 +38,12 @@ const SpeciesCard = ({
     const likes = (
         <div className="card-likes">
             { species.likes?.length > 0
-                ? <p className="likes-count">Likes: {species.likes.length}</p>
+                ? (
+                    <>
+                        <p className="likes-count">Likes: {species.likes.length}</p>
+                        <div className="heart active">&#10084;</div>
+                    </>
+                )
                 : ''
             }
             { !species.likes?.includes(currentUser?.email)

@@ -94,3 +94,18 @@
     color: rgba(255,0,0,.8);
     transform: scale(1.2);
 }
+
+.species-card .card-likes .heart:hover::after {
+    content: 'Give it a like!';
+    font-size: .75rem;
+    position: absolute;
+    left: -50%;
+    bottom: -1rem;
+    color: #fff;
+    white-space: pre;
+}
+
+.species-card .card-likes .heart.active {
+    color: rgba(255,0,0,.8);
+    pointer-events: none;
+}
