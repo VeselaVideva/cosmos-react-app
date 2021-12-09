@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react';
-
 import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    onAuthStateChanged
+    updateProfile
 } from 'firebase/auth';
 
 
@@ -23,14 +21,6 @@ export function logOut() {
     return signOut(auth);
 }
 
-
-// Hook for auth state
-export function useAuth() {
-    const [currentUser, setCurrentUser] = useState();
-
-    useEffect(() => {
-        return onAuthStateChanged(auth, user => setCurrentUser(user));
-    }, []);
-
-    return currentUser;
+export function addUserInfo(displayName, photoURL) {
+    return updateProfile(auth.currentUser, { displayName, photoURL });
 }

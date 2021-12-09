@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState, Suspense } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Profile.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
@@ -6,16 +7,21 @@ import { AuthContext } from '../../contexts/AuthContext';
 import Loading from '../Loading/Loading';
 import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
-import * as speciesService from '../../services/speciesService';
+import { getUserSpecies } from '../../services/speciesService';
+import { addUserInfo } from '../../services/authService';
 
 
-const Profile = () => {
+const Profile = ({
+    history
+}) => {
+    let historyHook = useHistory();
+
     const { currentUser } = useContext(AuthContext);
 
     const [species, setSpecies] = useState([]);
 
     useEffect(() => {
-        speciesService.getUserSpecies(currentUser?.email)
+        getUserSpecies(currentUser?.email)
             .then(result => {
                 setSpecies(result);
             })
@@ -24,10 +30,63 @@ const Profile = () => {
             })
     }, [currentUser]);
 
+    const [error, setError] = useState([]);
+
+    const onFormSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const displayName = formData.get('displayName').trim();
+        const photoURL = formData.get('photoURL').trim();
+
+        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
+        const isValid = regex.test(photoURL);
+
+        if (photoURL === '' || isValid === false) {
+            return setError('Please put a valid URL with your photo!');
+        }
+
+        if (displayName === '') {
+            return setError('Please fill your display name!');
+        }
+
+        await addUserInfo(displayName, photoURL)
+            .then(() => {
+                e.target.reset();
+                historyHook.push('/all-species');
+            })
+            .catch((err) => {
+                return setError(err.message);
+            })
+    }
+
     return (
         <div className="profile">
+            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <div className="user-info">
-                <h2><span>User:</span> {currentUser?.email}</h2>
+                <form onSubmit={ onFormSubmit } autoComplete="off">
+                    <div className="user-info_image">
+                        { currentUser?.photoURL
+                            ? <img src={currentUser?.photoURL} alt={currentUser?.displayName} />
+                            : (
+                                <>
+                                    <img src="/no-image.jpg" alt="" />
+                                    <input type="photoURL" name="photoURL" placeholder="Fill your profile photo URL" />
+                                </>
+                            )
+                        }
+                    </div>
+                    <div className="user-info_data">
+                        <h2><span>Name: </span>
+                            { currentUser?.displayName || <input type="displayName" name="displayName" placeholder="Fill your display name" /> }
+                        </h2>
+                        <h2><span>Email: </span> {currentUser?.email}</h2>
+                    </div>
+                        { !currentUser?.photoURL || !currentUser?.displayName
+                            ? <input className="submit" type="submit" value="Update profile"/>
+                            : ''
+                        }
+                </form>
             </div>
             <div className="my-species">
                 <h2>My Species</h2>
