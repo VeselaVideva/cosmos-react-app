@@ -5,8 +5,7 @@ import './App.css';
 import {} from './firebase/config';
 
 import { AuthProvider } from './contexts/AuthContext';
-
-import { useAuth } from './services/authService';
+import { useAuth } from './hooks/useAuth';
 
 // Components
 import Background from './components/Background';
