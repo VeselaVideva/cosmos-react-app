@@ -2,6 +2,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    text-align: left;
     background-color: rgba(0, 0, 0, .1);
     border-radius: 20px;
     padding: 2rem 3rem;
@@ -26,6 +27,10 @@
 
 .species-card p {
     line-height: 1.5rem;
+}
+
+.species-card .card-owner {
+    font-size: .875rem;
 }
 
 .species-card span {
@@ -67,4 +72,25 @@
 
 .species-card .owner-buttons {
     display: inline-flex;
+}
+
+.species-card .card-likes {
+    display: inline-flex;
+    align-items: center;
+}
+
+.species-card .card-likes .likes-count {
+    padding: 0 1rem;
+}
+
+.species-card .card-likes .heart {
+    font-size: 2rem;
+    color: rgba(255,255,255,.7);
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.species-card .card-likes .heart:hover {
+    color: rgba(255,0,0,.8);
+    transform: scale(1.2);
 }

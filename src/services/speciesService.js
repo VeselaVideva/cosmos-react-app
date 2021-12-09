@@ -6,7 +6,8 @@ import {
     getDocs,
     addDoc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+    arrayUnion
 } from "firebase/firestore";
 
 
@@ -55,7 +56,8 @@ export async function addNew({ species, lifespan, image, description, planet, ow
         image,
         description,
         planet,
-        owner
+        owner,
+        likes: []
     });
     return docRef;
 }
@@ -71,4 +73,12 @@ export async function updateOne(speciesId, { species, lifespan, image, descripti
 export async function deleteOne(speciesId) {
     const docRef = doc(db, "species", speciesId);
     await deleteDoc(docRef);
+}
+
+// Add the user to the likes array
+export async function likeOne(speciesId, user) {
+    const docRef = doc(db, "species", speciesId);
+    await updateDoc(docRef, {
+        likes: arrayUnion(user)
+    });
 }
