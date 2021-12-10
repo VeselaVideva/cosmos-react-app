@@ -28,22 +28,23 @@ const SpeciesCard = ({
             })
     }
 
+    const likesCount = <div className="likes-count">Likes: {species.likes?.length}</div>;
+
     const ownerButtons = (
         <div className="owner-buttons">
-            <Link to={`/all-species/${species.id}/edit`} className="card-btn">Edit</Link>
-            <Link to={`/all-species/${species.id}/delete`} className="card-btn">Delete</Link>
+            <Link to={`/all-species/${species.id}/edit`} className="card-btn">
+                <span className="card-icon">&#9998;</span> Edit
+            </Link>
+            <Link to={`/all-species/${species.id}/delete`} className="card-btn">
+                <span className="card-icon">&#128465;</span> Delete
+            </Link>
         </div>
     )
 
     const likes = (
         <div className="card-likes">
-            { species.likes?.length > 0
-                ? (
-                    <>
-                        <p className="likes-count">Likes: {species.likes.length}</p>
-                        <div className="heart active">&#10084;</div>
-                    </>
-                )
+            { species.likes?.length > 0 && species.likes?.includes(currentUser?.email)
+                ? <div className="heart active">&#10084;</div>
                 : ''
             }
             { !species.likes?.includes(currentUser?.email)
@@ -67,18 +68,11 @@ const SpeciesCard = ({
             </div>
             <div className="card-owner-details">
                 <p className="card-owner"><span>Added by:</span> {species.owner}</p>
-                    { currentUser !== null && isOwner === true
-                        ? ownerButtons
-                        : ''
-                    }
-                    { currentUser !== null && isOwner !== true
-                        ? likes
-                        : ''
-                    }
-                    { currentUser === null
-                        ? <div className="">Likes: { species.likes?.length || 0 }</div>
-                        : ''
-                    }
+                <div className="flex-end">
+                    { likesCount }
+                    { currentUser !== null && isOwner === true ? ownerButtons : '' }
+                    { currentUser !== null && isOwner !== true ? likes : '' }
+                </div>
             </div>
         </div>
     );

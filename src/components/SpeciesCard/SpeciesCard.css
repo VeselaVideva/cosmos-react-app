@@ -37,30 +37,34 @@
     color: rgba(255,255,255,.7);
 }
 
+.species-card span.card-icon {
+    color: #fff;
+}
+
 .species-card .flex {
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
 }
 
+.species-card .flex-end {
+    display: inline-flex;
+    align-items: center;
+}
+
 .species-card .card-btn {
     -webkit-appearance: button;
-    font-size: 0.875rem;
-    background-color: #4682b4;
     cursor: pointer;
-    padding: 15px;
+    padding: 0 1rem;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 20px;
     color: #fff;
-    letter-spacing: 1.5px;
-    width: 90px;
-    margin: 0.5rem;
     text-align: center;
+    transition: .2s ease-in;
 }
 
 .species-card .card-btn:hover {
-    background-color: #3e79ab;
+    color: #3e79ab;
 }
 
 .species-card .card-owner-details {
@@ -72,6 +76,7 @@
 
 .species-card .owner-buttons {
     display: inline-flex;
+    align-items: center;
 }
 
 .species-card .card-likes {
@@ -79,7 +84,7 @@
     align-items: center;
 }
 
-.species-card .card-likes .likes-count {
+.likes-count {
     padding: 0 1rem;
 }
 
