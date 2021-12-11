@@ -14,14 +14,13 @@ const SpeciesCard = ({
     let isOwner = currentUser?.email === species.owner;
     const speciesId = species.id;
 
-    const [hearts, setHearts] = useState([]);
+    const [like, setLike] = useState(species.likes);
     const [error, setError] = useState([]);
 
     const likeAction = async () => {
         await likeOne(speciesId, currentUser.email)
-            .then(result => {
-                setHearts(result);
-                return hearts;
+            .then(() => {
+                setLike(state => ({ ...state, likes: like.push(currentUser.email) }));
             })
             .catch((err) => {
                 return setError(err.message);
