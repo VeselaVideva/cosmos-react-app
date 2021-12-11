@@ -10,8 +10,7 @@ import { getPlanetSpecies } from '../../services/speciesService';
 
 
 const PlanetDetails = ({
-    match,
-    owner
+    match
 }) => {
     const [planet, setPlanet] = useState([]);
 
@@ -47,7 +46,7 @@ const PlanetDetails = ({
             <Suspense fallback={<Loading />}>
                 <h2>Inhabitants</h2>
                 { species.length > 0
-                    ? species.map(x => <SpeciesCard key={x.id} species={x} owner={owner} />)
+                    ? species.map(x => <SpeciesCard key={x.id} species={x} />)
                     : (
                         <div className="planet-card-details">
                             <h2>This planet still has no inhabitants!</h2>
