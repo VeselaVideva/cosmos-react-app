@@ -7,10 +7,9 @@ import SpeciesCard from '../SpeciesCard/SpeciesCard';
 import { getAllSpecies } from '../../services/speciesService';
 
 
-const Species = ({
-    owner
-}) => {
+const Species = () => {
     const [species, setSpecies] = useState([]);
+    const [error, setError] = useState([]);
 
     useEffect(() => {
         getAllSpecies()
@@ -18,15 +17,16 @@ const Species = ({
                 setSpecies(result);
             })
             .catch((err) => {
-                console.log(err.message);
+                return setError(err.message);
             })
     }, []);
 
     return (
         <div className="species">
+            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <Suspense fallback={<Loading />}>
                 { species.length > 0
-                    ? species.map(x => <SpeciesCard key={x.id} species={x} owner={owner} />)
+                    ? species.map(x => <SpeciesCard key={x.id} species={x} />)
                     : <Loading />
                 }
             </Suspense>
