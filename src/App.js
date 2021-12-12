@@ -5,6 +5,7 @@ import './App.css';
 import {} from './firebase/config';
 
 import { AuthProvider } from './contexts/AuthContext';
+import { NotificationProvider } from './contexts/NotificationContext';
 import { useAuth } from './hooks/useAuth';
 
 // Components
@@ -22,6 +23,7 @@ import Profile from './components/Profile/Profile';
 import Species from './components/Species/Species'; // catalog
 import PageNotFound from './components/PageNotFound/PageNotFound'; // 404 page
 import AuthRouteGuard from './components/Auth/AuthRouteGuard';
+import Notification from './components/Notification/Notification';
 import Ownership from './components/Ownership/Ownership';
 
 
@@ -32,38 +34,41 @@ export default function App() {
 
     return (
         <AuthProvider>
-            <BrowserRouter>
-                <Background />
-                <div className="App">
-                    <Header/>
-                    <Switch>
-                        <Route path="/" exact component={ Home } />
-                        <Route path="/explore" exact component={ Explore } />
-                        <Route path="/explore/:planetName" component={ PlanetDetails } />
-                        <Route path="/all-species" exact component={ Species } />
-                        <Route path="/all-species/:speciesId/edit">
-                            { isAuth ? <Update /> : <Redirect to="/login" /> }
-                        </Route>
-                        <Route path="/all-species/:speciesId/delete">
-                            { isAuth ? <Delete /> : <Redirect to="/login" /> }
-                        </Route>
-                        <Route path="/populate">
-                            { isAuth ? <Populate /> : <Redirect to="/login" /> }
-                        </Route>
-                        <Route path="/profile">
-                            { isAuth ? <Profile /> : <Redirect to="/login" /> }
-                        </Route>
-                        <Route path="/login">
-                            { !isAuth ? <Login /> : <AuthRouteGuard /> }
-                        </Route>
-                        <Route path="/register">
-                            { !isAuth ? <Register /> : <AuthRouteGuard /> }
-                        </Route>
-                        <Route path="/*" component={ PageNotFound } />
-                    </Switch>
-                    <Ownership />
-                </div>
-            </BrowserRouter>
+            <NotificationProvider>
+                <BrowserRouter>
+                    <Background />
+                    <div className="App">
+                        <Header/>
+                        <Notification />
+                        <Switch>
+                            <Route path="/" exact component={ Home } />
+                            <Route path="/explore" exact component={ Explore } />
+                            <Route path="/explore/:planetName" component={ PlanetDetails } />
+                            <Route path="/all-species" exact component={ Species } />
+                            <Route path="/all-species/:speciesId/edit">
+                                { isAuth ? <Update /> : <Redirect to="/login" /> }
+                            </Route>
+                            <Route path="/all-species/:speciesId/delete">
+                                { isAuth ? <Delete /> : <Redirect to="/login" /> }
+                            </Route>
+                            <Route path="/populate">
+                                { isAuth ? <Populate /> : <Redirect to="/login" /> }
+                            </Route>
+                            <Route path="/profile">
+                                { isAuth ? <Profile /> : <Redirect to="/login" /> }
+                            </Route>
+                            <Route path="/login">
+                                { !isAuth ? <Login /> : <AuthRouteGuard /> }
+                            </Route>
+                            <Route path="/register">
+                                { !isAuth ? <Register /> : <AuthRouteGuard /> }
+                            </Route>
+                            <Route path="/*" component={ PageNotFound } />
+                        </Switch>
+                        <Ownership />
+                    </div>
+                </BrowserRouter>
+            </NotificationProvider>
         </AuthProvider>
     );
 }
