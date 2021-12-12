@@ -20,6 +20,7 @@ const Home = () => {
             <Cursor />
             <div className="video">
                 <video
+                    data-testid="space-walk"
                     src="/space-walk.mp4"
                     width="1280"
                     height="720"
