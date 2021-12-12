@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Populate.css';
+
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import { updateOne } from '../../services/speciesService';
 import { planets } from '../../utils/planetsList';
@@ -16,6 +18,7 @@ const Update = ({
 
     const [species, setSpecies] = useSpeciesState(speciesId);
     const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -33,6 +36,7 @@ const Update = ({
 
         await updateOne(speciesId, { species, lifespan, image, description, planet })
             .then(() => {
+                showNotification('You successfully update the species info!', types.success);
                 e.target.reset();
                 historyHook.push('/all-species');
             })

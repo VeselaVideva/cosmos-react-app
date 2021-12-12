@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './Populate.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import { addNew } from '../../services/speciesService';
 import { planets } from '../../utils/planetsList';
@@ -14,6 +15,7 @@ const Populate = ({
     let historyHook = useHistory();
 
     const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
 
     const { currentUser } = useContext(AuthContext);
 
@@ -34,9 +36,9 @@ const Populate = ({
 
         await addNew({ species, lifespan, image, description, planet, owner })
             .then(() => {
+                showNotification('You successfully added a new species!', types.success);
                 e.target.reset();
                 historyHook.push('/all-species');
-                return owner;
             })
             .catch((err) => {
                 return setError(err.message);

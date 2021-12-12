@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import './Header.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import Logo from '../Logo/Logo';
 
@@ -17,6 +18,9 @@ const Header = ({
 
     const { currentUser } = useContext(AuthContext);
 
+    const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
+
     const username = getUsername(currentUser);
 
     const handleLogout = async (e) => {
@@ -24,13 +28,12 @@ const Header = ({
 
         await logOut()
             .then(() => {
-                console.log('Logged out!');
+                showNotification('You logged out successfully!', types.success);
+                historyHook.push('/');
             })
             .catch((err) => {
-                console.log(err.message);
+                return setError(err.message);
             });
-
-        historyHook.push('/');
     }
 
     let userNav = (
@@ -56,6 +59,7 @@ const Header = ({
                 <NavLink className="nav-link" activeClassName="active-nav-link" to="/all-species">All species</NavLink>
                 { currentUser !== null ? userNav : guestNav }
             </nav>
+            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
         </header>
     );
 }

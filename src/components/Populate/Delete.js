@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Populate.css';
+
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import { getOne, deleteOne } from '../../services/speciesService';
 
@@ -15,6 +17,7 @@ const Delete = ({
 
     const [species, setSpecies] = useState([]);
     const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
 
     useEffect(() => {
         getOne(speciesId)
@@ -30,8 +33,8 @@ const Delete = ({
         deleteOne(speciesId)
             .then(result => {
                 setSpecies(result);
+                showNotification('You successfully deleted the species!', types.success);
                 historyHook.push('/all-species');
-                return species;
             })
             .catch((err) => {
                 return setError(err.message);

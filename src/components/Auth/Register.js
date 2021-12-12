@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './Auth.css';
+
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import { signUp } from '../../services/authService';
 
@@ -11,6 +13,7 @@ const Register = ({
     let historyHook = useHistory();
 
     const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +28,8 @@ const Register = ({
 
         await signUp(email, password)
             .then((cred) => {
-                console.log('User created:', cred.user);
+                // console.log('User created:', cred.user);
+                showNotification('You signed up successfully!', types.success);
                 e.target.reset();
                 historyHook.push('/explore');
             })

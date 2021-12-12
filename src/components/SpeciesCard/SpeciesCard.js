@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './SpeciesCard.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { types, NotificationContext } from '../../contexts/NotificationContext';
+
 import { likeOne } from '../../services/speciesService';
 
 
@@ -16,11 +18,13 @@ const SpeciesCard = ({
 
     const [like, setLike] = useState(species.likes);
     const [error, setError] = useState([]);
+    const { showNotification } = useContext(NotificationContext);
 
     const likeAction = async () => {
         await likeOne(speciesId, currentUser.email)
             .then(() => {
                 setLike(state => ({ ...state, likes: like.push(currentUser.email) }));
+                showNotification(`You liked ${species.species}!`, types.success);
             })
             .catch((err) => {
                 return setError(err.message);
