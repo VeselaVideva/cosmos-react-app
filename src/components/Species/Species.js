@@ -1,10 +1,11 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import './Species.css';
 
 import Loading from '../Loading/Loading';
-import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
 import { getAllSpecies } from '../../services/speciesService';
+
+const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 
 
 const Species = () => {

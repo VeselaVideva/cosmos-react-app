@@ -1,17 +1,18 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import './Explore.css';
 
 import Loading from '../Loading/Loading';
-import PlanetCard from '../Card/PlanetCard';
 
-import * as planetService from '../../services/planetService';
+import { getAll } from '../../services/planetService';
+
+const PlanetCard = lazy(() => import('../Card/PlanetCard'));
 
 
 const Explore = () => {
     const [planets, setPlanets] = useState([]);
 
     useEffect(() => {
-        planetService.getAll()
+        getAll()
             .then(result => {
                 setPlanets(result);
             })

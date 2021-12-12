@@ -1,12 +1,13 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import './PlanetDetails.css';
 
 import Loading from '../Loading/Loading';
-import DetailsCard from '../DetailsCard/DetailsCard';
-import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
 import { getOne } from '../../services/planetService';
 import { getPlanetSpecies } from '../../services/speciesService';
+
+const DetailsCard = lazy(() => import('../DetailsCard/DetailsCard'));
+const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 
 
 const PlanetDetails = ({

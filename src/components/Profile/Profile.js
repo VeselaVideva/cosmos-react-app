@@ -1,14 +1,15 @@
-import { useContext, useEffect, useState, Suspense } from 'react';
+import { useContext, useEffect, useState, lazy, Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Profile.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
 import Loading from '../Loading/Loading';
-import SpeciesCard from '../SpeciesCard/SpeciesCard';
 
 import { getUserSpecies } from '../../services/speciesService';
 import { addUserInfo } from '../../services/authService';
+
+const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 
 
 const Profile = ({
