@@ -57,7 +57,8 @@ export async function addNew({ species, lifespan, image, description, planet, ow
         description,
         planet,
         owner,
-        likes: []
+        likes: [],
+        comments: []
     });
     return docRef;
 }
