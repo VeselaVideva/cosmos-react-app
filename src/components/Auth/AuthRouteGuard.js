@@ -1,3 +1,6 @@
+import './Auth.css';
+
+
 const AuthRouteGuard = () => {
     return (
         <div className="route-guard">
