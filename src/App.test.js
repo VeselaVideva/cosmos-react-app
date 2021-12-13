@@ -3,7 +3,6 @@ import { act } from "react-dom/test-utils";
 
 import Ownership from './components/Ownership/Ownership';
 import Loading from './components/Loading/Loading';
-import Home from './components/Home/Home';
 
 
 test('check if Jest is working properly', () => {
@@ -22,11 +21,4 @@ test('renders my Loading component', () => {
     render(<Loading />);
   });
   expect(screen.getByTestId('loader')).toBeInTheDocument();
-});
-
-test('renders my Logo component', () => {
-  act(() => {
-    render(<Home />);
-  });
-  expect(screen.getByTestId('space-walk')).toBeInTheDocument();
 });
