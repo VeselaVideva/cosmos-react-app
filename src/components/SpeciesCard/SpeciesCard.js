@@ -87,10 +87,15 @@ const SpeciesCard = ({
 
     const comments = (
         <div className="comments-body">
-            <form onSubmit={ commentAction } autoComplete="off">
-                <input type="text" name="comment" placeholder="Write comment..." />
-                <input className="submit" type="submit" value="&#9993; Send"/>
-            </form>
+            { currentUser !== null
+                ? (
+                    <form onSubmit={ commentAction } autoComplete="off">
+                        <input type="text" name="comment" placeholder="Write comment..." />
+                        <input className="submit" type="submit" value="&#9993; Send"/>
+                    </form>
+                )
+                : ''
+            }
             { species.comments?.length > 0
                 ? species.comments.map((c) => (
                     <div className="comment-row" key={Math.floor(Math.random()*10000000)}>
