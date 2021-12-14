@@ -5,7 +5,7 @@
     text-align: left;
     background-color: rgba(0, 0, 0, .1);
     border-radius: 20px;
-    padding: 2rem 3rem;
+    padding: 2rem 3rem 1rem;
     margin: 1rem;
     min-width: 31vw;
     max-width: 35vw;
@@ -16,7 +16,7 @@
     max-height: 200px;
     border-radius: 20px;
     padding: 1rem;
-    background: #000;
+    background: rgba(0, 0, 0, .5);
     margin: 0 2rem 1rem 0;
 }
 
@@ -58,13 +58,13 @@
     padding: 0 1rem;
     text-transform: uppercase;
     text-decoration: none;
-    color: #fff;
+    color: rgba(255,255,255,.7);
     text-align: center;
     transition: .2s ease-in;
 }
 
 .species-card .card-btn:hover {
-    color: #3e79ab;
+    color: #fff;
 }
 
 .species-card .card-owner-details {
@@ -86,6 +86,9 @@
 
 .likes-count {
     padding: 0 1rem;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1;
 }
 
 .species-card .card-likes .heart {
@@ -113,4 +116,85 @@
 .species-card .card-likes .heart.active {
     color: rgba(255,0,0,.8);
     pointer-events: none;
+}
+
+.species-card hr {
+    width: 100%;
+    border-color: rgba(255,255,255,.1);
+}
+
+.species-card .comments {
+    width: 100%;
+}
+
+.species-card .comments-header {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.species-card .comments-header h3 {
+    font-weight: 300;
+    line-height: 1;
+    margin: 1rem 0;
+}
+
+.species-card .comments-body form {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.species-card .comments-body input {
+    font-size: .875rem;
+    padding: 15px;
+    width: 70%;
+    border: none;
+    letter-spacing: 1.5px;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+.species-card .comments-body input:focus {
+    outline: none;
+}
+
+.species-card .comments-body input.submit {
+    width: 23%;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease-in-out;
+}
+
+.species-card .comments-body input.submit:hover {
+    background-color: #3e79ab;
+}
+
+.species-card .comments-body .comment {
+    font-size: .875rem;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 1rem;
+}
+
+.species-card .comments-body .comment-row {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px groove rgba(255, 255, 255, .2);
+}
+.species-card .comments-body .comment-row:last-of-type {
+    border-bottom: none;
+}
+
+
+.species-card .comments-body .avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
