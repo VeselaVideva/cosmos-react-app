@@ -59,8 +59,6 @@ const SpeciesCard = ({
             })
     }
 
-    const likesCount = <h3 className="likes-count">Likes: {species.likes?.length}</h3>;
-
     const ownerButtons = (
         <div className="owner-buttons">
             <Link to={`/all-species/${species.id}/edit`} className="card-btn">
@@ -71,6 +69,8 @@ const SpeciesCard = ({
             </Link>
         </div>
     )
+
+    const likesCount = <h3 className="likes-count">Likes: {species.likes?.length}</h3>;
 
     const likes = (
         <div className="card-likes">
