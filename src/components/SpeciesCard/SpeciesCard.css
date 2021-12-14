@@ -170,6 +170,7 @@
 
 .species-card .comments-body input.submit:hover {
     background-color: #3e79ab;
+    border-radius: 20px;
 }
 
 .species-card .comments-body .comment {
