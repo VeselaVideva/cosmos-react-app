@@ -1,6 +1,6 @@
 import './Home.css';
 
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import { useTypewriter } from 'react-simple-typewriter';
 
 
 const Home = () => {
@@ -17,7 +17,6 @@ const Home = () => {
     return (
         <div className="home">
             <span>{ text }</span>
-            <Cursor />
             <div className="video">
                 <video
                     src="/space-walk.mp4"
