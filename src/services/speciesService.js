@@ -83,3 +83,11 @@ export async function likeOne(speciesId, user) {
         likes: arrayUnion(user)
     });
 }
+
+// Add comment to the comments array
+export async function commentOne(speciesId, comment) {
+    const docRef = doc(db, "species", speciesId);
+    await updateDoc(docRef, {
+        comments: arrayUnion(comment)
+    });
+}
