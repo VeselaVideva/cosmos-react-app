@@ -1,5 +1,6 @@
 .notification {
-    position: absolute;
+    position: fixed;
+    top: calc(10% + 3rem);
     right: 3.5rem;
     color: #fff;
     padding: .5rem 2rem;
