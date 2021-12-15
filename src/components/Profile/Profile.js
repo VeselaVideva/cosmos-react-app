@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './Profile.css';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 
 import Loading from '../Loading/Loading';
 
@@ -18,6 +19,7 @@ const Profile = ({
     let historyHook = useHistory();
 
     const { currentUser } = useContext(AuthContext);
+    const { showNotification } = useContext(NotificationContext);
 
     const [species, setSpecies] = useState([]);
 
@@ -27,11 +29,9 @@ const Profile = ({
                 setSpecies(result);
             })
             .catch((err) => {
-                console.log(err.message);
+                return showNotification(err.message, types.error);
             })
-    }, [currentUser]);
-
-    const [error, setError] = useState([]);
+    }, [currentUser, showNotification]);
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
@@ -44,26 +44,26 @@ const Profile = ({
         const isValid = regex.test(photoURL);
 
         if (photoURL === '' || isValid === false) {
-            return setError('Please put a valid URL with your photo!');
+            return showNotification('Please put a valid URL with your photo!', types.warning);
         }
 
         if (displayName === '') {
-            return setError('Please fill your display name!');
+            return showNotification('Please fill your display name!', types.warning);
         }
 
         await addUserInfo(displayName, photoURL)
             .then(() => {
+                showNotification('Profile is updated successfully!', types.success);
                 e.target.reset();
                 historyHook.push('/all-species');
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
     }
 
     return (
         <div className="profile">
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <div className="user-info">
                 <form onSubmit={ onFormSubmit } autoComplete="off">
                     <div className="user-info_image">

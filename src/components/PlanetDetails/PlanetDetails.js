@@ -1,8 +1,9 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, useContext, lazy, Suspense } from 'react';
 import './PlanetDetails.css';
 
 import Loading from '../Loading/Loading';
 
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 import { getOne } from '../../services/planetService';
 import { getPlanetSpecies } from '../../services/speciesService';
 
@@ -13,6 +14,8 @@ const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 const PlanetDetails = ({
     match
 }) => {
+    const { showNotification } = useContext(NotificationContext);
+
     const [planet, setPlanet] = useState([]);
 
     useEffect(() => {
@@ -21,9 +24,9 @@ const PlanetDetails = ({
                 setPlanet(result);
             })
             .catch((err) => {
-                console.log(err.message);
+                return showNotification(err.message, types.error);
             })
-    }, [match]);
+    }, [match, showNotification]);
 
     const [species, setSpecies] = useState([]);
 
@@ -32,7 +35,10 @@ const PlanetDetails = ({
             .then(result => {
                 setSpecies(result);
             })
-    }, [match]);
+            .catch((err) => {
+                return showNotification(err.message, types.error);
+            })
+    }, [match, showNotification]);
 
     return (
         <div className="explore">

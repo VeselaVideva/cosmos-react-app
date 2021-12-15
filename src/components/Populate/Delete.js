@@ -16,7 +16,6 @@ const Delete = ({
     const speciesId = match.speciesId;
 
     const [species, setSpecies] = useState([]);
-    const [error, setError] = useState([]);
     const { showNotification } = useContext(NotificationContext);
 
     useEffect(() => {
@@ -25,9 +24,9 @@ const Delete = ({
                 setSpecies(result);
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
-    }, [speciesId]);
+    }, [speciesId, showNotification]);
 
     const deleteHandler = () => {
         deleteOne(speciesId)
@@ -37,13 +36,12 @@ const Delete = ({
                 historyHook.push('/all-species');
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
     }
 
     return (
         <div className="populate">
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <div className="flex">
                 <h2>Are you sure you want to destroy all <span className="accent">{species?.species}</span>'s?</h2>
                 <h2><span>&#9888;</span> This action is irreversible!</h2>

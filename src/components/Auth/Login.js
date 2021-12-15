@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './Auth.css';
 
@@ -12,7 +12,6 @@ const Login = ({
 }) => {
     let historyHook = useHistory();
 
-    const [error, setError] = useState([]);
     const { showNotification } = useContext(NotificationContext);
 
     const onFormSubmit = async (e) => {
@@ -23,7 +22,7 @@ const Login = ({
         const password = formData.get('password').trim();
 
         if (email === '' || password === '') {
-            return setError('All fields are required!');
+            return showNotification('All fields are required!', types.warning);
         }
 
         await signIn(email, password)
@@ -34,13 +33,12 @@ const Login = ({
                 historyHook.push('/explore');
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
     };
 
     return (
         <div className="login">
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <form onSubmit={ onFormSubmit } autoComplete="off">
                 <h1>Sign In</h1>
                 <input type="email" name="email" placeholder="Email" />

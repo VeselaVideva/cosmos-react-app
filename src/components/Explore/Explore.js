@@ -1,8 +1,9 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, useContext, lazy, Suspense } from 'react';
 import './Explore.css';
 
 import Loading from '../Loading/Loading';
 
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 import { getAll } from '../../services/planetService';
 
 const PlanetCard = lazy(() => import('../Card/PlanetCard'));
@@ -11,15 +12,17 @@ const PlanetCard = lazy(() => import('../Card/PlanetCard'));
 const Explore = () => {
     const [planets, setPlanets] = useState([]);
 
+    const { showNotification } = useContext(NotificationContext);
+
     useEffect(() => {
         getAll()
             .then(result => {
                 setPlanets(result);
             })
             .catch((err) => {
-                console.log(err.message);
+                return showNotification(err.message, types.error);
             })
-    }, []);
+    }, [showNotification]);
 
     return (
         <div className="explore">

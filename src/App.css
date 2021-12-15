@@ -10,12 +10,11 @@
   background-color: rgba(255,0,0,.5);
   color: #fff;
   text-align: center;
-  padding: 1rem 2rem;
-  position: absolute;
-  top: 18vh;
-  left: 0;
-  right: 0;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  top: calc(10% + 3rem);
+  right: 3.5rem;
   width: fit-content;
   margin: auto;
-  border-radius: 10px;
+  border-radius: .75rem;
 }

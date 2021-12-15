@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import './Header.css';
 
@@ -18,7 +18,6 @@ const Header = ({
 
     const { currentUser } = useContext(AuthContext);
 
-    const [error, setError] = useState([]);
     const { showNotification } = useContext(NotificationContext);
 
     const username = getUsername(currentUser);
@@ -32,7 +31,7 @@ const Header = ({
                 historyHook.push('/');
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             });
     }
 
@@ -59,7 +58,6 @@ const Header = ({
                 <NavLink className="nav-link" activeClassName="active-nav-link" to="/all-species">All species</NavLink>
                 { currentUser !== null ? userNav : guestNav }
             </nav>
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
         </header>
     );
 }

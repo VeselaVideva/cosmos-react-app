@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Populate.css';
 
@@ -17,7 +17,6 @@ const Update = ({
     const { speciesId } = useParams();
 
     const [species, setSpecies] = useSpeciesState(speciesId);
-    const [error, setError] = useState([]);
     const { showNotification } = useContext(NotificationContext);
 
     const onFormSubmit = async (e) => {
@@ -31,7 +30,7 @@ const Update = ({
         const planet = formData.get('planet');
 
         if (species === '' || lifespan === '' || image === '' || description === '') {
-            return setError('All fields are required!');
+            return showNotification('All fields are required!', types.warning);
         }
 
         await updateOne(speciesId, { species, lifespan, image, description, planet })
@@ -41,13 +40,12 @@ const Update = ({
                 historyHook.push('/all-species');
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
     }
 
     return (
         <div className="populate">
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <form onSubmit={ onFormSubmit } autoComplete="off">
                 <h1>Update <span className="accent">{species.species}</span> info</h1>
                 <label htmlFor="species">Species name:</label>
