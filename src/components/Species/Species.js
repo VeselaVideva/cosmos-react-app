@@ -1,8 +1,9 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, useContext, lazy, Suspense } from 'react';
 import './Species.css';
 
 import Loading from '../Loading/Loading';
 
+import { types, NotificationContext } from '../../contexts/NotificationContext';
 import { getAllSpecies } from '../../services/speciesService';
 
 const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
@@ -10,7 +11,8 @@ const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 
 const Species = () => {
     const [species, setSpecies] = useState([]);
-    const [error, setError] = useState([]);
+
+    const { showNotification } = useContext(NotificationContext);
 
     useEffect(() => {
         getAllSpecies()
@@ -18,13 +20,12 @@ const Species = () => {
                 setSpecies(result);
             })
             .catch((err) => {
-                return setError(err.message);
+                return showNotification(err.message, types.error);
             })
-    }, []);
+    }, [showNotification]);
 
     return (
         <div className="species">
-            { error.length > 0 ? <div className="error-box">{ error }</div> : '' }
             <Suspense fallback={<Loading />}>
                 { species.length > 0
                     ? species.map(x => <SpeciesCard key={x.id} species={x} />)
