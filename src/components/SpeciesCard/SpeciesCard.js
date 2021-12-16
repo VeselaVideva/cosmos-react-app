@@ -16,9 +16,8 @@ const SpeciesCard = ({
     const isOwner = currentUser?.email === species.owner;
     const speciesId = species.id;
 
-    const [like, setLike] = useState(species.likes);
-    const [dislike, setDislike] = useState(species.likes);
-    const [comment, setComment] = useState(species.comments);
+    const [like, setLike] = useState(species.likes || []);
+    const [comment, setComment] = useState(species.comments || []);
     const [isShow, setIsShow] = useState(false);
 
     const toggleComments = () => {
@@ -30,7 +29,8 @@ const SpeciesCard = ({
     const likeAction = async () => {
         await likeOne(speciesId, currentUser.email)
             .then(() => {
-                setLike(state => ({ ...state, likes: like.push(currentUser.email) }));
+                like.push(currentUser.email);
+                setLike([...like]);
                 showNotification(`You liked ${species.species}!`, types.success);
             })
             .catch((err) => {
@@ -39,12 +39,14 @@ const SpeciesCard = ({
     }
 
     const dislikeAction = async () => {
-        const userIndex = species.likes.indexOf(currentUser.email);
+        let userIndex = like.indexOf(currentUser.email) || 0;
 
         await dislikeOne(speciesId, currentUser.email)
             .then(() => {
-                setDislike(state => ({ ...state, likes: dislike.splice(userIndex, 1) }));
+                let removedUser = like?.splice(userIndex, 1);
+                setLike([...like]);
                 showNotification(`You disliked ${species.species}!`, types.success);
+                return removedUser;
             })
             .catch((err) => {
                 return showNotification(err.message, types.error);
@@ -83,15 +85,15 @@ const SpeciesCard = ({
         </div>
     )
 
-    const likesCount = <h3 className="likes-count">Likes: {species.likes?.length}</h3>;
+    const likesCount = <h3 className="likes-count">Likes: {like?.length}</h3>;
 
     const likes = (
         <div className="card-likes">
-            { species.likes?.length > 0 && species.likes?.includes(currentUser?.email)
+            { like?.length > 0 && like?.includes(currentUser?.email)
                 ? <div className="heart active" onClick={ dislikeAction }>&#10084;</div>
                 : ''
             }
-            { !species.likes?.includes(currentUser?.email)
+            { !like?.includes(currentUser?.email)
                 ? <div className="heart" onClick={ likeAction }>&#10084;</div>
                 : ''
             }
