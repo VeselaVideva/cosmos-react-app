@@ -26,6 +26,7 @@ const Species = lazy(() => import('./components/Species/Species')); // catalog
 const PageNotFound = lazy(() => import('./components/PageNotFound/PageNotFound')); // 404 page
 const AuthRouteGuard = lazy(() => import('./components/Auth/AuthRouteGuard'));
 const Notification = lazy(() => import('./components/Notification/Notification'));
+const ScrollButton = lazy(() => import('./components/ScrollToTop/ScrollToTop'));
 const Ownership = lazy(() => import('./components/Ownership/Ownership'));
 
 
@@ -68,6 +69,7 @@ export default function App() {
                                 </Route>
                                 <Route path="/*" component={ PageNotFound } />
                             </Switch>
+                            <ScrollButton />
                             <Ownership />
                         </div>
                     </Suspense>

@@ -1,0 +1,20 @@
+.scroll-to-top {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 10px 0 0 10px;
+    display: inline-flex;
+    position: fixed;
+    right: 0;
+    bottom: 5rem;
+    transition: 1s;
+}
+
+.scroll-to-top:hover {
+    background-color: #4682b4;
+}
+
+.scroll-to-top span {
+    font-size: 1.5rem;
+    padding: 16px 20px;
+    cursor: pointer;
+}
