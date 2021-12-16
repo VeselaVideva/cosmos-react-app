@@ -65,7 +65,6 @@ const SpeciesCard = ({
 
         await commentOne(speciesId, currentComment)
             .then(() => {
-                //setComment(state => ({ ...state, comments: comment.push(currentComment) }));
                 comment.unshift(currentComment);
                 setComment([...comment]);
                 showNotification(`You commented ${species.species}!`, types.success);
