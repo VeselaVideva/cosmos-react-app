@@ -65,7 +65,9 @@ const SpeciesCard = ({
 
         await commentOne(speciesId, currentComment)
             .then(() => {
-                setComment(state => ({ ...state, comments: comment.push(currentComment) }));
+                //setComment(state => ({ ...state, comments: comment.push(currentComment) }));
+                comment.unshift(currentComment);
+                setComment([...comment]);
                 showNotification(`You commented ${species.species}!`, types.success);
                 e.target.reset();
             })
@@ -111,8 +113,8 @@ const SpeciesCard = ({
                 )
                 : ''
             }
-            { species.comments?.length > 0
-                ? species.comments.map((c) => (
+            { comment?.length > 0
+                ? comment.map((c) => (
                     <div className="comment-row" key={Math.floor(Math.random()*10000000)}>
                         <span
                             className="avatar"
