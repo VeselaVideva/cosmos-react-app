@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState, lazy, Suspense } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import './Profile.css';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -11,15 +10,13 @@ import { addUserInfo } from '../../services/authService';
 const SpeciesCard = lazy(() => import('../SpeciesCard/SpeciesCard'));
 
 
-const Profile = ({
-    history
-}) => {
-    let historyHook = useHistory();
-
+const Profile = () => {
     const { currentUser } = useContext(AuthContext);
     const { showNotification } = useContext(NotificationContext);
 
     const [species, setSpecies] = useState([]);
+    const [userPhotoURL, setUserPhotoURL] = useState(currentUser?.photoURL);
+    const [userDisplayName, setUserDisplayName] = useState(currentUser?.displayName);
 
     useEffect(() => {
         getUserSpecies(currentUser?.email)
@@ -51,9 +48,14 @@ const Profile = ({
 
         await addUserInfo(displayName, photoURL)
             .then(() => {
+                setUserPhotoURL({ userPhotoURL: photoURL });
+                setUserDisplayName({ userDisplayName: displayName });
                 showNotification('Profile is updated successfully!', types.success);
                 e.target.reset();
-                historyHook.push('/all-species');
+                return {
+                    userPhotoURL,
+                    userDisplayName
+                }
             })
             .catch((err) => {
                 return showNotification(err.message, types.error);
@@ -66,7 +68,7 @@ const Profile = ({
                 <form onSubmit={ onFormSubmit } autoComplete="off">
                     <div className="user-info_image">
                         { currentUser?.photoURL
-                            ? <img src={currentUser?.photoURL} alt={currentUser?.displayName} />
+                            ? <img src={currentUser?.photoURL} alt="" />
                             : (
                                 <>
                                     <img src="/no-image.jpg" alt="" />
