@@ -1,10 +1,9 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Populate.css';
 
+import './Populate.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import { addNew } from '../../services/speciesService';
 import { planets } from '../../utils/planetsList';
 

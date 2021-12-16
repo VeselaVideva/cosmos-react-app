@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import './Header.css';
 
+import './Header.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
-import Logo from '../Logo/Logo';
-
 import { logOut } from '../../services/authService';
 import { getUsername } from '../../utils/getUsername';
+
+import Logo from '../Logo/Logo';
 
 
 const Header = ({

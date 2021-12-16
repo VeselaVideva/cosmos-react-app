@@ -1,12 +1,10 @@
 import { useContext, useEffect, useState, lazy, Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Profile.css';
 
+import './Profile.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import Loading from '../Loading/Loading';
-
 import { getUserSpecies } from '../../services/speciesService';
 import { addUserInfo } from '../../services/authService';
 

@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
 import './Auth.css';
-
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import { signIn } from '../../services/authService';
 
 

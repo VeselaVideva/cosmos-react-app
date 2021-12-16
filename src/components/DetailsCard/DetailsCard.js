@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import './DetailsCard.css';
 
+import './DetailsCard.css';
 import Loading from '../Loading/Loading';
 
 

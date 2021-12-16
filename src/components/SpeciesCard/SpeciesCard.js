@@ -1,10 +1,9 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './SpeciesCard.css';
 
+import './SpeciesCard.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import { likeOne, commentOne } from '../../services/speciesService';
 
 

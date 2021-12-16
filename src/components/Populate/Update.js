@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+
 import './Populate.css';
-
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import { updateOne } from '../../services/speciesService';
 import { planets } from '../../utils/planetsList';
 import useSpeciesState from '../../hooks/useSpeciesState';

@@ -1,9 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+
 import './Populate.css';
-
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-
 import { getOne, deleteOne } from '../../services/speciesService';
 
 

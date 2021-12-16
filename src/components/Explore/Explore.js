@@ -1,8 +1,7 @@
 import { useEffect, useState, useContext, lazy, Suspense } from 'react';
+
 import './Explore.css';
-
 import Loading from '../Loading/Loading';
-
 import { types, NotificationContext } from '../../contexts/NotificationContext';
 import { getAll } from '../../services/planetService';
 

@@ -1,8 +1,7 @@
 import { useEffect, useState, useContext, lazy, Suspense } from 'react';
+
 import './PlanetDetails.css';
-
 import Loading from '../Loading/Loading';
-
 import { types, NotificationContext } from '../../contexts/NotificationContext';
 import { getOne } from '../../services/planetService';
 import { getPlanetSpecies } from '../../services/speciesService';
