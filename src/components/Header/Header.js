@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -10,11 +10,7 @@ import { getUsername } from '../../utils/getUsername';
 import Logo from '../Logo/Logo';
 
 
-const Header = ({
-    history
-}) => {
-    let historyHook = useHistory();
-
+const Header = () => {
     const { currentUser } = useContext(AuthContext);
 
     const { showNotification } = useContext(NotificationContext);
@@ -26,8 +22,7 @@ const Header = ({
 
         await logOut()
             .then(() => {
-                showNotification('You logged out successfully!', types.success);
-                historyHook.push('/');
+                return showNotification('You logged out successfully!', types.success);
             })
             .catch((err) => {
                 return showNotification(err.message, types.error);
