@@ -8,9 +8,7 @@ import { addNew } from '../../services/speciesService';
 import { planets } from '../../utils/planetsList';
 
 
-const Populate = ({
-    history
-}) => {
+const Populate = () => {
     let historyHook = useHistory();
 
     const { currentUser } = useContext(AuthContext);
@@ -29,6 +27,13 @@ const Populate = ({
 
         if (species === '' || lifespan === '' || image === '' || description === '' || planet === null) {
             return showNotification('All fields are required!', types.warning);
+        }
+
+        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
+        const isValid = regex.test(image);
+
+        if (isValid === false) {
+            return showNotification('Please put a valid URL!', types.warning);
         }
 
         await addNew({ species, lifespan, image, description, planet, owner })
