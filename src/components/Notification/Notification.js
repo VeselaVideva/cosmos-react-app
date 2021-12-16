@@ -11,6 +11,9 @@ const Notification = () => {
         <div className={`notification ${notification.type}`} onClick={ hideNotification }>
             <p className="notification-message">
                 { notification.message }
+                { notification.message !== ''
+                    ? <span className="notification-close">&#10799;</span>
+                    : '' }
             </p>
         </div>
     );
