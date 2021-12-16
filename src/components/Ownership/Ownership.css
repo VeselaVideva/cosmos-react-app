@@ -1,7 +1,7 @@
 .ownership {
     color: #fff;
-    background-color: rgba(0, 0, 0, .1);
-    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 10px;
     display: inline-flex;
     position: fixed;
     right: -250px;
@@ -19,7 +19,7 @@
 }
 
 .globe {
-    padding: 1.2rem;
+    padding: 20px;
     cursor: pointer;
 }
 

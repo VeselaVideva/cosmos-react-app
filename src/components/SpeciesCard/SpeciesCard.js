@@ -115,7 +115,7 @@ const SpeciesCard = ({
     return (
         <div className="species-card" key={species.id}>
             <div className="flex">
-                <img src={species.image} alt={species.species} />
+                <img src={species.image} alt="" />
                 <div>
                     <h2><span>Species:</span> {species.species}</h2>
                     <p><span>Planet:</span> {species.planet}</p>

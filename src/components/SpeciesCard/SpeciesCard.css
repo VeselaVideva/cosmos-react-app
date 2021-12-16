@@ -12,8 +12,9 @@
 }
 
 .species-card img {
+    height: 200px;
+    width: auto;
     max-width: 200px;
-    max-height: 200px;
     border-radius: 20px;
     padding: 1rem;
     background: rgba(0, 0, 0, .5);
@@ -44,7 +45,7 @@
 .species-card .flex {
     width: 100%;
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .species-card .flex-end {
