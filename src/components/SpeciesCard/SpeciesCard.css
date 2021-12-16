@@ -116,7 +116,15 @@
 
 .species-card .card-likes .heart.active {
     color: rgba(255,0,0,.8);
-    pointer-events: none;
+}
+
+.species-card .card-likes .heart.active:hover {
+    color: #4682b4;
+}
+
+.species-card .card-likes .heart.active:hover::after {
+    content: 'Dislike!';
+    left: -8%;
 }
 
 .species-card hr {

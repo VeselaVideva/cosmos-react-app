@@ -7,7 +7,8 @@ import {
     addDoc,
     updateDoc,
     deleteDoc,
-    arrayUnion
+    arrayUnion,
+    arrayRemove
 } from "firebase/firestore";
 
 
@@ -81,6 +82,14 @@ export async function likeOne(speciesId, user) {
     const docRef = doc(db, "species", speciesId);
     await updateDoc(docRef, {
         likes: arrayUnion(user)
+    });
+}
+
+// Remove user from the likes array
+export async function dislikeOne(speciesId, user) {
+    const docRef = doc(db, "species", speciesId);
+    await updateDoc(docRef, {
+        likes: arrayRemove(user)
     });
 }
 

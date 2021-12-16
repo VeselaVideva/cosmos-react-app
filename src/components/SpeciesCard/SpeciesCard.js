@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SpeciesCard.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { types, NotificationContext } from '../../contexts/NotificationContext';
-import { likeOne, commentOne } from '../../services/speciesService';
+import { likeOne, dislikeOne, commentOne } from '../../services/speciesService';
 
 
 const SpeciesCard = ({
@@ -17,6 +17,7 @@ const SpeciesCard = ({
     const speciesId = species.id;
 
     const [like, setLike] = useState(species.likes);
+    const [dislike, setDislike] = useState(species.likes);
     const [comment, setComment] = useState(species.comments);
     const [isShow, setIsShow] = useState(false);
 
@@ -31,6 +32,19 @@ const SpeciesCard = ({
             .then(() => {
                 setLike(state => ({ ...state, likes: like.push(currentUser.email) }));
                 showNotification(`You liked ${species.species}!`, types.success);
+            })
+            .catch((err) => {
+                return showNotification(err.message, types.error);
+            })
+    }
+
+    const dislikeAction = async () => {
+        const userIndex = species.likes.indexOf(currentUser.email);
+
+        await dislikeOne(speciesId, currentUser.email)
+            .then(() => {
+                setDislike(state => ({ ...state, likes: dislike.splice(userIndex, 1) }));
+                showNotification(`You disliked ${species.species}!`, types.success);
             })
             .catch((err) => {
                 return showNotification(err.message, types.error);
@@ -74,7 +88,7 @@ const SpeciesCard = ({
     const likes = (
         <div className="card-likes">
             { species.likes?.length > 0 && species.likes?.includes(currentUser?.email)
-                ? <div className="heart active">&#10084;</div>
+                ? <div className="heart active" onClick={ dislikeAction }>&#10084;</div>
                 : ''
             }
             { !species.likes?.includes(currentUser?.email)
