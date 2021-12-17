@@ -81,4 +81,8 @@ input:focus {
         padding: 5rem 2rem;
         width: auto;
     }
+
+    .route-guard {
+        padding: 5rem 2rem;
+    }
 }
