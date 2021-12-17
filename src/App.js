@@ -32,7 +32,9 @@ const Ownership = lazy(() => import('./components/Ownership/Ownership'));
 
 export const LocationDisplay = () => {
     const location = useLocation();
-    return <div data-testid="location-display">{location.pathname}</div>
+    return <div data-testid="location-display" className="location-display">
+        {location.pathname}
+    </div>
 }
 
 export default function App() {
