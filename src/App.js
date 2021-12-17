@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import './normalize.css';
 import './App.css';
 
@@ -29,6 +29,11 @@ const Notification = lazy(() => import('./components/Notification/Notification')
 const ScrollButton = lazy(() => import('./components/ScrollToTop/ScrollToTop'));
 const Ownership = lazy(() => import('./components/Ownership/Ownership'));
 
+
+export const LocationDisplay = () => {
+    const location = useLocation();
+    return <div data-testid="location-display">{location.pathname}</div>
+}
 
 export default function App() {
     const currentUser = useAuth();
@@ -69,6 +74,7 @@ export default function App() {
                                 </Route>
                                 <Route path="/*" component={ PageNotFound } />
                             </Switch>
+                            <LocationDisplay />
                             <ScrollButton />
                             <Ownership />
                         </div>
