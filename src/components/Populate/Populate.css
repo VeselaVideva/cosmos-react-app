@@ -107,3 +107,17 @@ select:focus {
     margin: 1rem;
     border-radius: 20px;
 }
+
+@media (max-width: 600px) {
+    .populate form, .populate .flex {
+        width: 60vw;
+    }
+
+    .populate form input {
+        width: 100%;
+    }
+
+    .populate form select {
+        width: calc(100% + 30px);
+    }
+}

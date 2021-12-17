@@ -68,3 +68,17 @@ input:focus {
 .alien {
     height: 300px;
 }
+
+@media (max-width: 991px) {
+    .login form, .register form {
+        padding: 5rem 2rem;
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .login form, .register form {
+        padding: 5rem 2rem;
+        width: auto;
+    }
+}

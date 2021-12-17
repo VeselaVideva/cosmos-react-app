@@ -18,3 +18,8 @@
   margin: auto;
   border-radius: .75rem;
 }
+
+.location-display {
+  font-size: .1rem;
+  color: transparent;
+}

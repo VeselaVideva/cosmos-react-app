@@ -29,3 +29,34 @@
 .active-nav-link {
     color: #4682b4;
 }
+
+@media (max-width: 991px) {
+    .header {
+        height: 7%;
+        font-size: 1.2rem;
+        flex-direction: column;
+    }
+
+    .logo {
+        padding-bottom: 1rem;
+    }
+
+    .nav-link {
+        white-space: pre;
+    }
+
+    #user {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .header nav {
+        display: inline-block;
+        text-align: center;
+    }
+
+    #user, #guest {
+        margin-top: 1rem;
+    }
+}

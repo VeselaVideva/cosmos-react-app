@@ -1,0 +1,5 @@
+@media (max-width: 991px) {
+    .planet-card-details .card-grid {
+        grid-template-columns: 1fr 1fr 35%;
+    }
+}

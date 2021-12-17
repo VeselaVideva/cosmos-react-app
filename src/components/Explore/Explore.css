@@ -8,3 +8,9 @@
 .explore h2 {
     font-weight: 300;
 }
+
+@media (max-width: 991px) {
+    .explore {
+        padding: 5rem 2rem;
+    }
+}

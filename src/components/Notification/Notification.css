@@ -34,3 +34,9 @@
     right: 20px;
     font-size: 1.3rem;
 }
+
+@media (max-width: 600px) {
+    .notification {
+        right: 1rem;
+    }
+}

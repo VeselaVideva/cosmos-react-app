@@ -66,3 +66,15 @@
     border-bottom: none;
     font-weight: 400;
 }
+
+@media (max-width: 991px) {
+    .profile {
+        padding: 5rem 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile {
+        padding: 5rem 2rem;
+    }
+}

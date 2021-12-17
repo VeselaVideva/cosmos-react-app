@@ -9,6 +9,7 @@
     margin: 1rem;
     min-width: 31vw;
     max-width: 35vw;
+    color: #fff;
 }
 
 .species-card img {
@@ -207,4 +208,51 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .species-card {
+        min-width: 26vw;
+        max-width: 34vw;
+        padding: 2rem 2rem 1rem;
+    }
+
+    .species-card .flex {
+        flex-direction: column;
+    }
+
+    .species-card img {
+        margin: 0 0 1rem 0;
+    }
+
+    .species-card .card-owner-details {
+        flex-direction: column;
+    }
+
+    .species-card .flex-end {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .species-card .comments-body input {
+        width: 60%;
+    }
+
+    .species-card .comments-body input.submit {
+        width: 40%;
+    }
+
+    .likes-count,
+    .species-card .card-btn {
+        white-space: pre;
+    }
+}
+
+@media (max-width: 600px) {
+    .species-card {
+        min-width: 70vw;
+        max-width: 75vw;
+        padding: 2rem 1rem 1rem;
+        margin: 1rem 0;
+    }
 }
